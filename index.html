@@ -874,16 +874,17 @@
 
                                 <br>
 
-                                <p>Follow up: After solving a previous problem, a new problem comes. This project is like a black hole for me. A new function is post by the client: display the SSIM (what is that?!) on each camera view in real time, with a rate of 30 times/second!! Each camera view is 1280x720. To get the SSIM, I need to run image convolution of the screen shot, get the variance of those 1280x720 pixel values, and do a lot of matrix calculations. The first problem I encounter is to get the pixel values of each screen shot. The current built in function for of opentok library just return a 64base image data. To get the pixel values, I have to create an Image object with that data in javascript, and render it to an invisble canvas so as to get the RGB values. However, this is way too slow, I am now seeking to see if nodejs is faster than client side javascript, or maybe using FFT to speed up the process. Perhaps, I have to use a back end language to do multi-thread processing. Who knows? what a wonderful world!</p>
-
-                                <br>
-
                              </div>
 
                             <div>
                                 <br>
                                 <iframe height='457' scrolling='no' src='//codepen.io/hkjpotato/embed/rOLyqr/?height=457&theme-id=18712&default-tab=html' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/hkjpotato/pen/rOLyqr/'>rOLyqr</a> by Kaijie Huang (<a href='http://codepen.io/hkjpotato'>@hkjpotato</a>) on <a href='http://codepen.io'>CodePen</a>.
                                 </iframe>
+                                
+                                <br>
+
+                                <p>Follow up: After solving a previous problem, a new problem comes. This project is like a black hole for me. A new function is post by the client: display the SSIM (what is that?!) on each camera view in real time, with a rate of 30 times/second!! Each camera view is 1280x720. To get the SSIM, I need to run image convolution of the screen shot, get the variance of those 1280x720 pixel values, and do a lot of matrix calculations. The first problem I encounter is to get the pixel values of each screen shot. The current built in function for of opentok library just return a 64base image data. To get the pixel values, I have to create an Image object with that data in javascript, and render it to an invisble canvas so as to get the RGB values. However, this is way too slow, I am now seeking to see if nodejs is faster than client side javascript, or maybe using FFT to speed up the process. Perhaps, I have to use a back end language to do multi-thread processing. Who knows? what a wonderful world!</p>
+
                             </div>
 
                             <br>
