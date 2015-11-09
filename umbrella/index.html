@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Main Console</title>
+  <meta name="description" content="">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="test.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="cube.css">
+
+  <style type="text/css">
+    #title {
+      top: 35%;
+      color: white;
+      position: fixed;
+      text-align: center;
+      font-size: 350%;
+      width: 100%;
+      z-index: 1000;
+      opacity: 0;
+      font-family: 'Lato', sans-serif;
+      -webkit-transition: all 2s linear;
+      -moz-transition: all 2s linear;
+      transition: all 2s linear;
+    }
+
+    #cube {
+      display: none;
+    }
+
+    body {
+      background: black;
+
+    }
+
+    #flow {
+      position: fixed;
+      bottom: 0px;
+      height: 200px;
+      /*display: none;*/
+      width: 100%;
+      background: red;
+      overflow: hidden;
+    }
+
+    .flowImg img {
+      width: 240px;
+      height: 200px;
+      /*float: left;*/
+    }
+  </style>
+</head>
+
+<body >
+<div ng-app="myApp" ng-controller="myController">
+  <div id="title">
+    <h1> Umbrella  Movement </h1>
+  </div>
+  <div id="picBoard" class="container">
+    <div class="wrap wrap-defaults">
+      <div class="box box-rotate box-rotate-right" ng-repeat="index in indexList">
+        <div class="front">
+          <img ng-src="{{srcRoot}}/{{oldName}}/{{index}}.png" />
+        </div>
+
+        <div class="right">
+          <img class="shadow" ng-src="{{srcRoot}}/{{newName}}/{{index}}.png" />
+        </div>
+
+        <div class="back">
+          <img class="shadow" ng-src="{{srcRoot}}/{{oldName}}/{{index}}.png" />
+        </div>
+
+        <div class="left">
+          <img ng-src="{{srcRoot}}/{{newName}}/{{index}}.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="cube" class="cubeContainer">
+    <div id="cube">
+      <div class="front">
+        <img ng-src="{{srcRoot}}/{{newName}}/1.png" />
+      </div>
+      <div class="back">       
+        <img ng-src="{{srcRoot}}/{{oldName}}/2.png" />
+      </div>
+
+       
+      <div class="right">
+        <iframe  src="https://www.youtube.com/embed/WG1gk4BYFYo?autoplay=1"></iframe>
+      </div>
+      <div class="left">       
+        <iframe src="https://www.youtube.com/embed/OAknPmkYFsE?autoplay=1">
+        </iframe>
+      </div>
+      <div class="top">
+        <iframe src="https://www.youtube.com/embed/dfUTqQmF_vU?autoplay=1">
+        </iframe>
+      </div>
+
+      <div class="bottom">
+        <img ng-src="{{srcRoot}}/{{oldName}}/11.png" />
+      </div>
+    </div>
+  </div>
+
+<!--   <div id="flow">
+    <div class="flowImg" ng-repeat="index in indexList2">
+      <img class="shadow" ng-src="{{srcRoot}}/{{newColor}}/{{index}}.png" />
+    </div>
+  </div> -->
+</div>
+<script type="text/javascript">
+var numPic = 15;
+// define angular module/app
+var myApp = angular.module('myApp', []);
+
+// create angular controller and pass in $scope and $http
+function myController($scope) {
+  $scope.srcRoot = "chuli";
+
+  $scope.nameList = [];
+  $scope.nameList.push("blue");
+  $scope.nameList.push("yellow");
+
+
+  $scope.indexList = [];
+  for (var i = 1; i <= numPic; i++) {
+    $scope.indexList.push(i);
+  }
+
+
+  $scope.indexList2 = [];
+  for (var i = 1; i <= numPic; i++) {
+    $scope.indexList2.push(i);
+  }
+
+
+  $scope.oldName = "yellow";
+  $scope.newName = "blue";
+
+  $(".container").toggleClass("animate");
+
+  var count = 0;
+  $(".container").bind('animationend webkitAnimationEnd', function() {
+    count++;
+    if (count == numPic) {
+      $('#title').css({"opacity":1});
+    }
+  });
+
+  $(document).keydown(function(e) {
+    $('#picBoard').slideUp("slow");
+
+    // $('#picBoard').css({"opacity":0.7});
+
+    $('#title').css({"opacity":0.2});
+    $('#cube').css({"display":"block"});
+    // $('#flow').css({"display":"block"});
+
+
+  });
+
+  // $(document).keyup(function(e) {
+  //   $('#picBoard').slideDown("slow");
+  // });
+}
+
+
+
+</script>
+</body>
+</html>
+
