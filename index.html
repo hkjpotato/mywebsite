@@ -886,10 +886,18 @@
                             <div style="text-align:left">
                                 <br>
 
-                                <p>Follow up: I have just finished a major function of this web app, which is motion detection about the video stream. The motion detection is done on browser side using javascript. The major algorithim I use is image convolution, which involves running several matrix manipulation in a high rate(10 frames per second). Afte trial and error, I used several tricks To improve the performance. For example, I used typed array to store the pixel values gained from the canvas element (getImageData). As we known, each pixel has 4 values for R, G, B, and alpha, and they are stored in UInt8 type. Instead of using Uint8ClampedArray to store them, I use Int32Array with some bit calculation(e.g. bit shifting) to reduce the number of for loops.</p>
+                                <p>Follow up: </p>
+
+                                <p>I have just finished a major function of this web app: the <b>motion detection</b> about the video stream. The motion detection is done on browser side using javascript. The major algorithim I use is image convolution, which involves running several matrix manipulation in a high rate(10 frames per second).
+                                </p>
+
                                 <br>
 
-                                <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras within 50 millisecond, including processing speed, GPS, liDar signals from various sessions.</p>
+                                <p>
+                                Afte trial and error, I used several tricks to improve the performance. For example, I used typed array to store the pixel values gained from the canvas element (getImageData). As we known, each pixel has 4 values for R, G, B, and alpha, and they are stored in UInt8 type. Instead of using Uint8ClampedArray to store them, I use Int32Array with some bit calculation(e.g. bit shifting) to reduce the number of for loops.</p>
+                                <br>
+
+                                <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras within 50 millisecond, including processing speed, GPS, liDar signals from various sessions at the same time.</p>
                                 <br>
                             </div>
 
