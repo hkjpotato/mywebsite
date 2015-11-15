@@ -54,12 +54,38 @@
                 transition: opacity 3s linear 1.2s;
 
             }
-            .my-icon {
-                color: yellow;
-                font-size: 150%;
-            }
+
         }
 
+        .my-icon {
+            color: yellow;
+            font-size: 150%;
+        }
+
+        .myPanel {
+            width: 200px;
+            height: 600px;
+            border-radius: 3px;
+            border:1px solid #d3d3d3;
+        }
+
+        #textInfo {
+            float: left;
+        }
+        #tweet {
+            float: right;
+        }
+
+        #cubeInfo {
+            width:  1100px;
+            height: 600px;
+            color: red;
+            position: relative;
+            margin: 50px auto;
+            top: 20px;
+            z-index: 1000;
+            display: none;
+        }
 
     </style>
 
@@ -144,6 +170,17 @@
             <div id="cubeControl">
                 <input type="button" class="btn btn-default" value="Magic" onclick="changeState(this)">
             </div>
+
+            <div id="cubeInfo">
+                <div id="textInfo" class="myPanel">
+                    <p>Some description about this face...</p>
+                </div>
+
+                <div id="tweet" class="myPanel">
+                    <p>Some twitters about it</p>
+                </div>
+            </div>
+
         </div>
     </section>
 

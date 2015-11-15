@@ -860,7 +860,7 @@
 
                                 <br>
 
-                                <p>The project involves Angular.JS, WebRTC, canvas manipulation, google map customization, version control, etc. As the client comes up with more product requirements, more challenges will come in the future. And the most important thing I learn from this project is:</p>
+                                <p>The project involves Angular.JS, WebRTC, canvas manipulation, image processing on client side, version control, etc. As the client comes up with more product requirements, more challenges will come in the future. And the most important thing I learn from this project is:</p>
 
                                 <br>
 
@@ -886,8 +886,10 @@
                             <div style="text-align:left">
                                 <br>
 
-                                <p>Follow up: After solving a previous problem, a new problem comes. This project is like a black hole for me. A new function is post by the client: display the SSIM (what is that?!) on each camera view in real time, with a rate of 30 times/second!! Each camera view is 1280x720. To get the SSIM, I need to run image convolution of the screen shot, get the variance of those 1280x720 pixel values, and do a lot of matrix calculations. The first problem I encounter is to get the pixel values of each screen shot. The current built in function for of opentok library just return a 64base image data. To get the pixel values, I have to create an Image object with that data in javascript, and render it to an invisble canvas so as to get the RGB values. However, this is way too slow, I am now seeking to see if nodejs is faster than client side javascript, or maybe using FFT to speed up the process. Perhaps, I have to use a back end language to do multi-thread processing. Who knows? what a wonderful world!</p>
+                                <p>Follow up: I have just finished a major function of this web app, which is motion detection about the video stream. The motion detection is done on browser side using javascript. The major algorithim I use is image convolution, which involves running several matrix manipulation in a high rate(10 frames per second). Afte trial and error, I used several tricks To improve the performance. For example, I used typed array to store the pixel values gained from the canvas element (getImageData). As we known, each pixel has 4 values for R, G, B, and alpha, and they are stored in UInt8 type. Instead of using Uint8ClampedArray to store them, I use Int32Array with some bit calculation(e.g. bit shifting) to reduce the number of for loops.</p>
+                                <br>
 
+                                <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras within 50 millisecond, including processing speed, GPS, liDar signals from various sessions.</p>
                                 <br>
                             </div>
 
