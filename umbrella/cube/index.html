@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <title>Timeline Cube</title>
+
+
+    <!-- Custom CSS -->
+    <link href="cube.css" rel="stylesheet">
+
+    <style type="text/css">
+    
+
+    #myBody {
+      background: #4495e5;
+      position: absolute;
+    }
+
+
+    #cubeText {
+        width: 280px;
+        height: 100px;
+        position: absolute;
+        color: white;
+        text-align: center;
+        top: 250px;
+        left: 65px;
+        z-index: 1000;
+        -webkit-transition: all .5s linear .2s;
+        -moz-transition: all .5s linear .2s;
+        transition: all .5s linear .2s;
+    }
+
+    #cubeControl {
+        position: absolute;
+        top: 345px;
+        left: 150px;
+    }
+
+    #cubeControl2 {
+        position: absolute;
+        top: 345px;
+        left: 250px;
+    }
+
+    </style>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body id="myBody">    
+    <div class="scene">
+      <div class="object">
+        <img src="
+        http://i.dailymail.co.uk/i/pix/2014/09/28/1411910316065_wps_23_Police_fire_tear_gas_upon.jpg" alt="" class="img1" />
+        <iframe class="img2" src="https://www.youtube.com/embed/dfUTqQmF_vU?autoplay=0"></iframe>
+        <iframe class="img3" src="https://www.youtube.com/embed/dfUTqQmF_vU?autoplay=0"></iframe>
+        <img src="http://chinaexaminer.bayvoice.net/wp-content/uploads/sites/4/2014/10/14131865949891.jpg" alt="" class="img4" />
+        <iframe class="img5" src="https://www.youtube.com/embed/WG1gk4BYFYo?autoplay=0"></iframe>
+
+        <iframe class="img6" src="https://www.youtube.com/embed/OAknPmkYFsE?autoplay=0">
+        </iframe>
+      </div>
+    </div>
+
+    <div id="cubeText">
+        Hong Kong's Police let loose 87 rounds of tear gas against protestors
+    </div>
+
+    <div id="controlSection">
+        <div id="cubeControl">
+            <input type="button" class="btn btn-default" value="more" onclick="rotateRight(this)">
+        </div>
+
+        <div id="cubeControl2">
+            <input type="button" class="btn btn-success" value="from another angle" onclick="rotateUp(this)">
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        var text1 ="Tensions rose at the junction of Tim Mei Avenue and Harcourt Road after the police used pepper spray";
+
+        var text2 ="At around 6 pm, shots of tear gas were fired. The use of tear gas on peaceful protesters, inspired tens of thousands of citizens to join the protests in Admiralty that night.";
+
+        var textUp = '"Protesters are ten times our number. They are layers of offence and we are just one line of defence."'
+
+        var currentState = "more";
+        function rotateRight(button) {
+            if (currentState == "more") {
+                //become Paused
+                button.value = "and more";
+                currentState = "and more";
+                $('.object').addClass("right");
+                $('#cubeText').html(text1);
+            } else if (currentState == "and more") {
+                //become Playing
+                button.value = "and more";
+                currentState = "and more";
+                $('.object').addClass("right2");
+                $('#cubeText').html(text2);
+            }
+        }
+
+        function rotateUp(button) {
+            $('.object').addClass("up");
+            $('#cubeText').html(textUp);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
