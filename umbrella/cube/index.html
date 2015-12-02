@@ -1,29 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Timeline Cube</title>
 
+<head>
 
     <!-- Custom CSS -->
-    <link href="cube.css" rel="stylesheet">
-
+    <link href="cube.css" rel="stylesheet" type="text/css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-    
-
-    #myBody {
-      background: #4495e5;
-      position: absolute;
+    body {
+      overflow:hidden;
+      background-color: #4495e5;
     }
 
-
     #cubeText {
-        width: 280px;
+        width: 300px;
         height: 100px;
         position: absolute;
         color: white;
         text-align: center;
         top: 250px;
-        left: 65px;
+        left: 55px;
         z-index: 1000;
         -webkit-transition: all .5s linear .2s;
         -moz-transition: all .5s linear .2s;
@@ -43,20 +41,16 @@
     }
 
     </style>
-
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
-<body id="myBody">    
+
+<body >
     <div class="scene">
       <div class="object">
         <img src="
-        http://i.dailymail.co.uk/i/pix/2014/09/28/1411910316065_wps_23_Police_fire_tear_gas_upon.jpg" alt="" class="img1" />
+        http://i.dailymail.co.uk/i/pix/2014/09/28/1411910316065_wps_23_Police_fire_tear_gas_upon.jpg" alt="" class="img1"></img>
         <iframe class="img2" src="https://www.youtube.com/embed/dfUTqQmF_vU?autoplay=0"></iframe>
         <iframe class="img3" src="https://www.youtube.com/embed/dfUTqQmF_vU?autoplay=0"></iframe>
-        <img src="http://chinaexaminer.bayvoice.net/wp-content/uploads/sites/4/2014/10/14131865949891.jpg" alt="" class="img4" />
+        <img src="http://chinaexaminer.bayvoice.net/wp-content/uploads/sites/4/2014/10/14131865949891.jpg" alt="" class="img4"></img>
         <iframe class="img5" src="https://www.youtube.com/embed/WG1gk4BYFYo?autoplay=0"></iframe>
 
         <iframe class="img6" src="https://www.youtube.com/embed/OAknPmkYFsE?autoplay=0">
@@ -65,7 +59,11 @@
     </div>
 
     <div id="cubeText">
-        Hong Kong's Police let loose 87 rounds of tear gas against protestors
+    <b>
+        <span id="cubeTextTxt">
+         Hong Kong's Police let loose 87 rounds of tear gas against protestors
+        </span>
+    </b>
     </div>
 
     <div id="controlSection">
@@ -82,11 +80,11 @@
 
     <script type="text/javascript">
 
-        var text1 ="Tensions rose at the junction of Tim Mei Avenue and Harcourt Road after the police used pepper spray";
+        var text1 ="A famous photo by which citizens criticized strongly about the use of tear gas";
 
-        var text2 ="At around 6 pm, shots of tear gas were fired. The use of tear gas on peaceful protesters, inspired tens of thousands of citizens to join the protests in Admiralty that night.";
+        var text2 ="The use of tear gas inspired tens of thousands of citizens to join the protests in Admiralty that night.";
 
-        var textUp = '"Protesters are ten times our number. They are layers of offence and we are just one line of defence."'
+        var textUp = '"Protesters are ten times our number. They are layers of offence and we are just one line of defence."--Mr.Tam, a local policeman'
 
         var currentState = "more";
         function rotateRight(button) {
@@ -95,23 +93,26 @@
                 button.value = "and more";
                 currentState = "and more";
                 $('.object').addClass("right");
-                $('#cubeText').html(text1);
+                $('#cubeTextTxt').html(text1);
             } else if (currentState == "and more") {
                 //become Playing
                 button.value = "and more";
                 currentState = "and more";
                 $('.object').addClass("right2");
-                $('#cubeText').html(text2);
+                $('#cubeTextTxt').html(text2);
             }
         }
 
         function rotateUp(button) {
             $('.object').addClass("up");
-            $('#cubeText').html(textUp);
+            $('#cubeTextTxt').html(textUp);
         }
     </script>
 </body>
+
 </html>
+
+
 
 
 
