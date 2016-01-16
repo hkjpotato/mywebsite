@@ -1,91 +1,35 @@
 @import "variables.less";
 @import "mixins.less";
 
-.btn-circle {
-    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-    -moz-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-    box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-
-    width: 70px;
-    height: 70px;
-    margin-top: 15px;
-    padding: 7px 16px;
-    border: 2px solid white;
-    border-radius: 100% !important;
-    font-size: 40px;
-    color: white;
-    background: transparent;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-    &:hover,
-    &:focus {
-        outline: none;
-        color: white;
-        background: fade(white, 10%);
-    }
-    i.animated {
-        -webkit-transition-property: -webkit-transform;
-        -webkit-transition-duration: 1s;
-        -moz-transition-property: -moz-transform;
-        -moz-transition-duration: 1s;
-    }
-
-    i.animated.hover {
-        -webkit-animation-name: pulse;
-        -moz-animation-name: pulse;
-        -webkit-animation-duration: 1.5s;
-        -moz-animation-duration: 1.5s;
-        -webkit-animation-iteration-count: infinite;
-        -moz-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-        -moz-animation-timing-function: linear;
-    }
-
+body {
+	overflow-x: hidden;
 }
 
-@-webkit-keyframes pulse {    
-    0 {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-
-    50% {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5);
-    }
-
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
+p {
+	font-size: 20px;
 }
 
-@-moz-keyframes pulse {    
-    0 {
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
+p.small {
+	font-size: 16px;
+}
 
-    50% {
-        -moz-transform: scale(1.5);
-        transform: scale(1.5);
-    }
-
-    100% {
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+	color: @brand-success;
+	outline: none;
 }
 
 #myIcon_frame  {
-    width: 0px;
-    height: 0px;
-    margin-top: 100px;
+    width: 180px;
+    height: 180px;
     background:white;
-    border-radius: 50%;
+    border-radius: 0%;
+    box-sizing: border-box;
     border: 8px solid white;
-    opacity: 1;
+    opacity: 0;
 }
 
 #frame {
@@ -126,32 +70,6 @@
   -webkit-transition: all 2s linear 4.5s;
   -moz-transition: all 2s linear 4.5s;
   transition: all 2s linear 4.5s;
-}
-
-
-
-
-
-
-body {
-	overflow-x: hidden;
-}
-
-p {
-	font-size: 20px;
-}
-
-p.small {
-	font-size: 16px;
-}
-
-a,
-a:hover,
-a:focus,
-a:active,
-a.active {
-	color: @brand-success;
-	outline: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -202,6 +120,7 @@ hr.star-primary:after {
 .img-centered {
 	margin: 0 auto;
 }
+
 header {
 	text-align: center;
 	background: @brand-iconback;
@@ -215,8 +134,6 @@ header {
 		margin: 0 auto 20px;
 	}
 	.intro-text {
-		margin-top: -10px;
-
 		.name {
 			display: block;
 			font-family: "Helvetica Neue","Montserrat", Helvetica, Arial, sans-serif;
@@ -567,7 +484,7 @@ footer {
     }
 }
 
-.portfolio-modal {
+.portfolio- {
 	.modal-content {
 	    border-radius: 0;
 	    background-clip: border-box;

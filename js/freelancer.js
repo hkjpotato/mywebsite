@@ -11,7 +11,9 @@ $(function() {
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
+        console.log("freelencer js scroll function activated");
         event.preventDefault();
+
     });
 });
 
