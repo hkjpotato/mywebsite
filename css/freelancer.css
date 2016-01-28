@@ -98,19 +98,20 @@
   color: #887969;
   opacity: 0;
   margin-top: 5px;
-  -webkit-transition: all 2s linear 2.5s;
-  -moz-transition: all 2s linear 2.5s;
-  transition: all 2s linear 2.5s;
+  -webkit-transition: all 2s linear 1.5s;
+  -moz-transition: all 2s linear 1.5s;
+  transition: all 2s linear 1.5s;
 }
 #my-intro {
   color: #4e463d;
   opacity: 0;
-  -webkit-transition: all 2s linear 4.5s;
-  -moz-transition: all 2s linear 4.5s;
-  transition: all 2s linear 4.5s;
+  -webkit-transition: all 1.5s linear 3s;
+  -moz-transition: all 1.5s linear 3s;
+  transition: all 1.5s linear 3s;
 }
 body {
   overflow-x: hidden;
+  color: #6f6861;
 }
 p {
   font-size: 20px;
@@ -134,7 +135,7 @@ h5,
 h6 {
   font-family: "Helvetica Neue", "Montserrat", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 500;
 }
 hr.star-light,
 hr.star-primary {
@@ -287,7 +288,7 @@ header .intro-text .skills {
     transition: padding 0.3s;
   }
   .navbar-fixed-top .navbar-brand {
-    font-size: 1.8em;
+    font-size: 1.5em;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -296,13 +297,13 @@ header .intro-text .skills {
     padding: 7px 0;
   }
   .navbar-fixed-top.navbar-shrink .navbar-brand {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 }
 .navbar {
   font-family: "Helvetica Neue", "Montserrat", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 500;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.08), 0 7px 10px rgba(0, 0, 0, 0.09), 0 22px 22px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.08), 0 7px 10px rgba(0, 0, 0, 0.09), 0 22px 22px rgba(0, 0, 0, 0.05);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.08), 0 7px 10px rgba(0, 0, 0, 0.09), 0 22px 22px rgba(0, 0, 0, 0.05);
@@ -338,6 +339,9 @@ section.success a:active,
 section.success a.active {
   color: #4e463d;
   outline: none;
+}
+section#portfolio {
+  background: #f5f3f3;
 }
 @media (max-width: 767px) {
   section {

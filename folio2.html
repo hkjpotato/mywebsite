@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kaijie Huang's Personal Website</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> scroll-->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+    <!-- Custom CSS -->
+    <link href="css/myfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- use of google fonts -->
+    <!-- <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+    <style type="text/css">
+        #nav_icon {
+          height: 30px;
+          margin-top: 10px;
+          margin-right: 15px;
+
+        }
+
+      #iframeDatabase {
+          width: 100%;
+          min-width: 360px;
+          height: 548px;
+          border:0;
+      }
+
+    #myVis {
+        /*margin-left: -10%;*/
+        font-size: 10px;
+    }
+
+    path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+    }
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+    .overlay {
+    fill: none;
+    pointer-events: all;
+    }
+    .focus circle {
+    fill: none;
+    stroke: steelblue;
+    }
+    .brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+    }
+    .bar {
+    fill: steelblue;
+    .area {
+    stroke-width: 0;
+    fill: lightsteelblue;
+    }
+    
+    .median-line,
+    .legend .median-line {
+    fill: none;
+    stroke: 'black';
+    stroke-width: 3;
+    }
+    
+    .legend .legend-bg {
+    fill: rgba(0, 0, 0, 0.5);
+    stroke: rgba(0, 0, 0, 0.5);
+    }
+
+    .legend text,
+    .marker text {
+    fill: #fff;
+    font-weight: bold;
+    }
+    
+    .marker text {
+    text-anchor: middle;
+    }
+    }
+
+    .focus_price circle {
+        fill: steelblue;
+        stroke: steelblue;
+    }
+    .focus_time circle {
+        fill: steelblue;
+        stroke: steelblue;
+    }
+
+
+    #myDay {
+      /*position: absolute;*/
+      /*width: 80px;*/
+      height: 20px;
+      text-align: center;
+      color: #178DB4;
+      font-size: 150%; 
+/*      -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
+      -moz-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
+      box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);*/
+    }
+
+    </style>
+
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+                <a class="pull-left" href="index.html#portfolio">
+                  <img id="nav_icon" alt="Brand" src="./img/nav_icon.png">
+                </a>
+                <a class="navbar-brand" href="index.html#portfolio">
+                  KJ's Website
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="index.html#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="index.html#portfolio">Portfolio</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="index.html#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+   <!-- modal body -->
+   <div class="portfolio-modal" id="portfolioModal1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                        <div class="modal-body">
+                            <h2>Insider's Visual Guide to Uber</h2>
+                            <br>
+
+                            <div >
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Fb98tBD8p1U" frameborder="0" allowfullscreen></iframe>
+                            </div>
+
+                            
+                            <div class="myContent" style="text-align:left">
+                                <br>
+                                <h3>About</h3>
+                                <p>Uber uses an algorithm to calculate the surge price during peak times, when the demand for drivers are high in a certain area. This might have several impacts on both customers and drivers. According to a Washington Post article, these may include: a reduction in the demand for cars (less people want a ride for a higher price), creation of new supply (providing an incentive for new drivers to hit the road), and shifts in supply (drivers) to areas of higher demand. We propose to present a visualization of these data to help users understand how surge multiplier works and how to optimize trip planning, especially when travelling to popular events or during peak times.</p>
+
+                                <br>
+
+                                <!-- <h3>Design Ideation</h3> -->
+
+                                <h3>Implementation</h3>
+                                <p>Working with another 3 designer and developers. We make the web app for this visualization project using D3.js.</p>
+
+                                <p>Below is one part I made for the "customer's view". The idea is to show the information the customer might be interest, such as price, waiting time, as well as total trip duration in one single window.</p>
+
+                                <div id="myVis" class="row">
+                                    <div id="myDay" class="col-lg-12">Monday</div>
+                                    <div id="kjChart" class="col-lg-4"></div>
+                                    <div id="time" class="col-lg-8"></div>
+                                </div>
+
+                                <ul>
+                                    <li><p>Provide <a href="http://www.infovis-wiki.net/index.php?title=Overview-plus-Detail">"Overview-plus-Detail"</a> so that the user can see the overall pattern of cost&time variation, as well as the detailed waiting time and trip duration at a specific hour</p></li>
+
+                                    <li><p>Link the data from various views, which is the so-called <a href="http://www.infovis-wiki.net/index.php?title=Linking_and_Brushing">"Brushing and Linking"</a> technique in information visualization. 
+                                        <ol>
+
+                                        <li> <p>For bar chart, since each bar is an individual svg element, I can bind the data directly to the svg elements. 
+                                        </p></li>
+
+                                        <li> <p>For the line chart, since the line is a continuous svg element, I have to use invert scale to match the mouse position with data point.
+                                        </p></li>
+                                        </ol>
+
+                                    </li>
+
+                                    <li><p>Use the built-in transition function from D3 library to add animation effect to the svg element so as to enhance the user experience.</p></li>
+                                </ul>
+                                <br>
+                                <p>The detailed project document can be found on <a href="https://github.com/hkjpotato/dbproject">google doc</a>.
+                                </p>
+                             </div>
+                             <br>
+                            <a type="button" class="btn btn-default" href="index.html#portfolio"><i class="fa fa-times"></i> Close</a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="vis/timebar.js"></script>
+    <script src="vis/time.js"></script>
+
+    <script type="text/javascript">
+    init();
+    init_time();
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+
+</html>
+
+
+
+
+

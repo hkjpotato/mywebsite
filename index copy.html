@@ -33,37 +33,35 @@
 
         #downArrowSection {
           opacity: 0;
-          -webkit-transition: opacity 1s linear 4s;
-          -moz-transition: opacity 1s linear 4s;
-          transition: opacity 1s linear 4s;
+          -webkit-transition: opacity 2s linear 5s;
+          -moz-transition: opacity 2s linear 5s;
+          transition: opacity 2s linear 5s;
         }
 
         #nav_icon {
           height: 30px;
-          margin-top: 10px;
-          margin-right: 15px;
-
+          margin: 12px;
         }
 
          #myIcon_frame.draw #frame {
-          -webkit-animation: DRAWFRAME 3s forwards 1.5s;
+          -webkit-animation: DRAWFRAME 4s forwards 2.5s;
           /* Safari 4+ */
-          -moz-animation: DRAWFRAME 3s forwards 1.5s;
+          -moz-animation: DRAWFRAME 4s forwards 2.5s;
           /* Fx 5+ */
-          -o-animation: DRAWFRAME 3s forwards 1.5s;
+          -o-animation: DRAWFRAME 4s forwards 2.5s;
           /* Opera 12+ */
-          animation: DRAWFRAME 3s forwards 1.5s;
+          animation: DRAWFRAME 4s forwards 2.5s;
         }
 
 
         #myIcon_frame.draw #myIcon{
-          -webkit-animation: DRAWICON 3.4s forwards 2.5s;
+          -webkit-animation: DRAWICON 5.4s forwards 3.5s;
           /* Safari 4+ */
-          -moz-animation: DRAWICON 3.4s forwards 2.5s;
+          -moz-animation: DRAWICON 5.4s forwards 3.5s;
           /* Fx 5+ */
-          -o-animation: DRAWICON 3.4s forwards 2.5s;
+          -o-animation: DRAWICON 5.4s forwards 3.5s;
           /* Opera 12+ */
-          animation: DRAWICON 3.4s forwards 2.5s;
+          animation: DRAWICON 5.4s forwards 3.5s;
         }
 
 
@@ -118,16 +116,23 @@
 
 
         #myIcon, #frame {
-          -webkit-transition: all 2.5s linear .3s;
-          -moz-transition: all 2.5s linear .3s;
-          transition: all 2.5s linear .3s;
+          -webkit-transition: all 3.5s linear .3s;
+          -moz-transition: all 3.5s linear .3s;
+          transition: all 3.5s linear .3s;
         }
 
         #myIcon_frame {
-          -webkit-transition: all 1.5s ease 0.3s;
-          -moz-transition: all 1.5s ease 0.3s;
-          transition: all 1.5s ease 0.3s;
+          -webkit-transition: all 2s ease 0.3s;
+          -moz-transition: all 2s ease 0.3s;
+          transition: all 2s ease 0.3s;
         }
+
+/*        #myIcon_frame {
+          -webkit-transition: margin-top .5s ease 0.3s;
+          -moz-transition: margin-top .5s ease 0.3s;
+          transition: margin-top .5s ease 0.3s;
+        }*/
+
       </style>
       <style type="text/css">
         #iframeDatabase {
@@ -175,10 +180,23 @@
 
         }
 
+
+
+
         .videoSrc {
           /*display:none;*/
         }
 
+        @media screen and (max-width: : 1200px) {
+            #headShot {
+                /*margin-top: 10%;*/
+                width:100%;
+                max-width:400px;
+                margin: 6% auto 6%;
+                /*background-color: ;*/
+                /*width:50%;*/
+            }
+        }
     </style>
 
 
@@ -204,7 +222,7 @@
                   <img id="nav_icon" alt="Brand" src="./img/nav_icon.png">
                 </a>
                 <a class="navbar-brand" href="#page-top">
-                  KJ Huang
+                  KJ's Website
                 </a>
             </div>
 
@@ -232,6 +250,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <!-- <img class="img-responsive" id="headShot2" src="img/headshot.png" alt="profile image"> -->
+
+                    <!-- myIconGroup -->
+
                     <div id="iconGroup">
                       <div id="myIconContainer">
                         <svg id="myIcon_frame" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -386,7 +408,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio1.html" class="portfolio-link" >
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <!-- <i class="fa fa-search-plus fa-3x"></i> -->
@@ -398,60 +420,55 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio2.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
-                                <!-- <p>CSS3 animation & AngularJS</p> -->
-                                <p>Information Visualization</p>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/infovis.png" class="img-responsive" alt="CSS3 & AngularJs smartisan">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="folio3.html" class="portfolio-link">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <!-- <i class="fa fa-search-plus fa-3x"></i> -->
                                 <p>CSS3 animation & AngularJS</p>
                             </div>
                         </div>
-                        <img src="img/portfolio/smartisan_icon.png" class="img-responsive" alt="second project">
+                        <img src="img/portfolio/smartisan_icon.png" class="img-responsive" alt="CSS3 & AngularJs smartisan">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio4.html" class="portfolio-link">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
+                                <p>Product Design & User Testing</p>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/circus.png" class="img-responsive" alt="second project">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <!-- <i class="fa fa-search-plus fa-3x"></i> -->
                                 <p>Product Design & Prototyping</p>
-
                             </div>
                         </div>
-                        <img src="img/portfolio/prototype.jpg" class="img-responsive" alt="">
+                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio5.html" class="portfolio-link">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <!-- <i class="fa fa-search-plus fa-3x"></i> -->
-                                <!-- <p>Android Developement</p> -->
+                                <p>Android Developement</p>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
                                 <p>WebRTC</p>
-                                <!-- <p>Product Design & User Testing</p> -->
-
-                            </div>
-                        </div>
-                        <img src="img/portfolio/webrtc.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
-                                <p>Under Development...</p>
 
                             </div>
                         </div>
@@ -478,12 +495,9 @@
                     <img id="headShot" class="img-responsive" src="img/headshot.png" alt="KJ's head shot"/>
                 </div>
                 <div class="col-lg-5" >
-                    <p>Hi, I am KJ (Kaijie Huang), a graduate student majoring in Human-Computer Interaction at Georgia Institute of Technology.</p>
-                    <p>I was working as a graduate research assistant at the <a href="http://www.ece.gatech.edu/research/labs/msl/">Multimedia & Sensors Lab(MSL)</a>, developing webRTC(Web Real-Time Communication) applications and web-based image processing application.</p>
-
-                    <p>And now I am working as a technical intern at the <a href="http://www.cvent.com/">Cvent.Inc</a> at Atlanta, in charge of developing web UI using ReactJS with webpack framework.</p>
-<!--                     <p>I am now working as a graduate research assistant at the <a href="http://www.ece.gatech.edu/research/labs/msl/">Multimedia & Sensors Lab(MSL)</a> at Gatech, in charge of developing webRTC(Web Real-Time Communication) applications and web-based image processing application.</p> -->
-                    <p>I love food TV show and I am a fan of Anthony Bourdain.</p>
+                    <p>Hi, I am KJ (Kaijie Huang), a graduate student majoring in Human-Computer Interaction at Georgia Institute of Technology. </p>
+                    <p>I am now working as a graduate research assistant at the <a href="http://www.ece.gatech.edu/research/labs/msl/">Multimedia & Sensors Lab(MSL)</a> at Gatech, in charge of developing webRTC(Web Real-Time Communication) applications and web-based image processing application.</p>
+                    <p>I am passionate about front end user experience design. Check out my AngularJS project and CSS3 projects in my portfolio!</p>
                 </div>
 
 
@@ -528,6 +542,10 @@
                             </li>
                         </ul>
                     </div>
+<!--                     <div class="footer-col col-md-4">
+                        <h3>About Freelancer</h3>
+                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -549,8 +567,385 @@
         </a>
     </div>
 
+    <!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Restaurant Inspection Database</h2>
+                            <!-- <hr class="star-primary"> -->
+                            <br>
+                            <!-- <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt=""> -->
+                            <div >
+                                <iframe id="iframeDatabase" src="http://52.24.114.125/dbproject/" ><p>Your browser does not support iframes.</p></iframe>
+                            </div>
+
+                            
+                            <div class="myContent" style="text-align:left">
+                                <br>
+                                <p>Above is a web application I developed for CS4400 Introduction to Database Systems. The purpose of this project is to analyze, specify, design, implement, document, and demonstrate a database management information system called the Georgia Restaurant Health Inspection System.</p>
+
+                                <br>
+
+                                <p>User may login as restaurant operator(name: chuney; password: 1234) or inspector(name:edo; password: 1234). The application will automatically guide user towards corresponding menu page based on the login information. If not registered, user can login as guest.
+                                </p>
+
+                                <br>
+
+                                <ul>
+                                    <li><p>The front application is developed fully based on AngularJS. Most of the contents are generated from back end server and dynamically binded to the front end HTML elements.</p></li>
+                                    <li><p>Bootstrap is used to enhance the UI. The original UI is simple html without CSS</p></li>
+                                    <li><p>Input data is sent by $http service of AngularJS and the backend is developed using PHP & MySQL.</p></li>
+                                </ul>
+
+                                <br>
+
+                                <p>
+                                The detailed project description, including schema diagram and EER diagram for the database, can be found on my <a href="https://github.com/hkjpotato/dbproject">github</a>.
+                                </p>
+
+                                <br>
+
+
+                             </div>
+                             <br>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>CSS3 3d animation & AngularJS</h2>
+
+                            <div>
+                                <br>
+                                <!-- <hr class="star-primary"> -->
+                                <!-- <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt=""> -->
+                                <p data-height="665" data-theme-id="18712" data-slug-hash="KdpGrM" data-default-tab="result" data-user="hkjpotato" class='codepen'>See the Pen <a href='http://codepen.io/hkjpotato/pen/KdpGrM/'>KdpGrM</a> by Kaijie Huang (<a href='http://codepen.io/hkjpotato'>@hkjpotato</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+                                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+                            </div>
+
+                            
+                            <div class="myContent" style="text-align:left">
+                                <br>
+                                <p>Using CSS3 (3d rotation), I try to reproduce the animation effect of an android operating system named <a href="http://www.smartisan.com/en/#/os">Smartisan OS</a>.</p>
+
+                                <br>
+
+                                <ul>
+                                    <li><p>AngularJS and SCSS are used to simplify the complexity of the code.</p></li>
+                                    <li><p>Dynamic data binding makes the outlook of every facade of the cubes changable.</p></li>
+                                    <li><p>Special concerns are given to some specific animation effect. (e.g hover effect of the color icons)</p></li>
+                                    <li><p>Details count! Parameters such as animation duration and frames are well tuned so as to provide a sense of harmony.</p></li>
+                                </ul>
+
+                                <br>
+
+                                <p>Through this project, I want to train myself to reproduce popular animation effects on other platforms such as IOS & Android. In the age of CSS3, I believe the touch heart moment created by entrancing animation is a key to enhance user experience and viscosity of a product.</p>
+
+                                <br>
+
+                                <p>The source materials are obtained from the official website of Smartisan's new Phone, <a href="http://www.smartisan.com/jianguo/#/overview">JianGuo™</a>. I use Photoshop to slice each facade of the cubes from the original images. Besides, I also reference the some of the codes of the original website.</p>
+
+                                <br>
+                                <br>
+                                
+                                <p style="text-align:right">您好，如有版权问题，请与<a href="mailto:hkjpotato@gmail.com">我</a>联系。</p>
+                                <br>
+
+                             </div>
+
+                            <br>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Digital Menu</h2>
+                            <!-- <hr class="star-primary"> -->
+                            <div class="myContent" style="text-align:left">
+                            <br>
+                            <!-- <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt=""> -->
+
+                            <div class="page-scroll">
+                                <a id="my-top" href="#my-bottom">Top</a>
+                            </div>
+
+                            <p>
+                              This is a course project of the core course of our HCI programe, CS6750 Human Computer Interaction. Working as a team with 3 other HCI students, we went through the whole process of product design, including 
+                              <ul>
+                                  <li><p>Problem identification: Task analyis & User study</p></li>
+                                  <li><p>Design alternatives: Low & high fidelity prototyping</p></li>
+                                  <li><p>Testing: Heuristic Evaluation, Cognitive Walkthrough, Usability testing</p></li>
+                                  <li><p>Design refinement and documentation, final presentation</p></li>
+                              </ul>
+
+
+           
+
+                            <br>
+
+                            <p> Our project entered the CIC (<a href="http://cic.gatech.edu/">Convergence Innovation Competition</a>) and won honorable mention.
+                            </p>
+                            <br>
+
+                            <p>
+                              I was in charge of designing the usability testing for the product, including benchmark task, heuristic evaluation. And we conducted the user study and product testing in a professional way. Before launching the tests, a detailed IRB protocol was submitted for review. Results were well documented, discussed and integrated in the future design cycle.
+                            </p>
+                            <br>
+
+                            <p>
+                              The detailed report can be found on <a href="https://docs.google.com/document/d/1Ev5pVVtNggNH6eK7TepH1KlRrqVmqmJdewBMIKKsPf0/edit?usp=sharing">Google Drive</a>.
+                            </p>
+
+                            <br>
+                            <iframe src="https://drive.google.com/file/d/0B5irgryOEPUsV1IwZk9vdW5Sa2M/preview" width="100%" height="800"></iframe>
+                            <br>
+                            <br>
+
+
+                            <div class="page-scroll">
+                                <a id="my-bottom" href="#my-top">Bottom</a>
+                            </div>
+
+                            </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Medicine Reminder</h2>
+                            <!-- <hr class="star-primary"> -->
+                            <!-- <img src="img/portfolio/game.png" class="img-responsive img-centered" alt=""> -->
+                            <div class="myContent" style="text-align:left">
+                              <br>
+                              <p>
+                                Medicine Reminder is a platform to help a medicine taker and his/her care giver to better manager the medicine taking acitivities. The platform mainly involves an <a href="#medicineReminder_ios">IOS application</a> for a care giver to track the medicine taking condition remotely, and a <a href="#medicineReminder_device">touch screen interface</a> on the medicine container to remind the medicine taker about their pills.
+                              </p>
+                              
+
+                              <div id="medicineReminder_navImg_container">
+                          <!--       <a href="img/src/flowchartResized.png" data-lightbox="medReminderFlowChart" data-title="Flow Chart"> -->
+                                  <img src="img/src/flowchartResized.png" class="img-responsive img-centered" alt="">
+                                <!-- </a> -->
+                              </div>
+
+                              <br>
+                              <p>
+                                Direct interviews as well as personas development were conducted to have an insight of the user scenarios. Nuanced thinking on interaction flows and interface design ensured the ease of use of the product.
+                              </p>
+                              <br>
+
+                              <div id="medicineReminder_ios">
+                                <h3>IOS  APP</h3>
+                                <p>
+                                  Low fidelity prototype was first developed by Balsamiq. Then, Keynote is used to developed the interactive prototype with animation effect and details such as color. (<a href="#" onclick="showWhyKeynote()">Why Keynote?</a>)
+                                </p>
+
+                                <div id="whyKeynote">
+
+                                  <p>
+                                    Keynote is adopted by company like Apple UX team to develope fast and interactive prototypes (<a href="https://vimeo.com/100377108">example</a>). I am a Keynote lover. For me, the most important feature of keynote is the "magic move" function, which requires connections between elements of two successive interfaces. This helps designer to consciously formulate a clear interaction flow. (I even used keynote to explain an ambiguous <a href="https://youtu.be/lkL6RkQvpMM">string searching algorithm</a> for my algorithm class).
+                                  </p>
+
+                                </div>
+
+
+
+                                <div id="medicineReminder_ios_video" style="padding:20px 0 20px 0">
+                                  <iframe class="videoSrc" align="middle" width="100%" height="420px" src="https://www.youtube.com/embed/IZKy46LbpKk" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                              </div>
+
+
+                              <div id="medicineReminder_device">
+                                <h3>Touchscreen Interface</h3>
+                                <p>
+                                  As a course project, we were asked to develope in a different style other than the IOS app. Thus I adopted a Material Design style for the touch screen interface. I used Keynote for the UI design, and Axure for the interactive prototype.
+                                </p>
+
+                                <div id="medicineReminder_device_flowChart">
+
+                                </div>
+
+
+                                <div id="medicineReminder_device_video" style="padding:20px 0 20px 0">
+                                  <iframe class="videoSrc" align="middle" width="100%" height="420px" src="https://www.youtube.com/embed/J5ez5UqQb48" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                              </div>
+
+
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Fresh</h2>
+                            <h5>Android App help you manager your fridge in a smart way</h5>
+                            <br>
+                            <div class="myContent" style="text-align:left">
+                              <br>
+                              <p>What I did:
+                                <ul>
+                                  <li><p>Transform the original IOS design into Android design based on Material Design Guidelines.</p></li>
+                                  <li><p>Java development, use object-oriented approach to simplify the original code. Implement key functions such as sorting of the food item (using Comparator and Queue)</p></li>
+                                </ul>
+                              </p>
+                              <div id="fresh_video" style="padding:20px 0 20px 0">
+                                <iframe class="videoSrc" align="middle" width="100%" height="420px" src="https://www.youtube.com/embed/AL8R81JsJeU" frameborder="0" allowfullscreen></iframe>
+                              </div>
+
+                            <br>
+                              
+                            </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Ford® Remote Repositioning Project</h2>
+
+                            
+                            <div class="myContent" style="text-align:left">
+                                <br>
+
+                                <p>This undergoing <a href="https://media.ford.com/content/fordmedia/fna/us/en/news/2015/01/06/mobility-experiment-remote-repositioning-atlanta.html">project</a> is my first time to lead the front end development for a real product. I learn a lot from this project, not only about coding & UI design, but also about being professional and self-motivated.</p>
+
+                                <br>
+
+                                <p>The project involves Angular.JS, WebRTC, canvas manipulation, image processing on client side, version control, etc. As the client comes up with more product requirements, more challenges will come in the future. And the most important thing I learn from this project is:</p>
+
+                                <br>
+
+                                <p>
+                                  "Never say 'I will try', say 'I will!'" -- by my supervisor
+                                </p>
+
+                                <br>
+
+                                <p>Below are some sample codes. Due to confidential, some codes are hidden.</p>
+
+                             </div>
+
+                            <div>
+                                <br>
+                                <iframe height='457' scrolling='no' src='//codepen.io/hkjpotato/embed/rOLyqr/?height=457&theme-id=18712&default-tab=html' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/hkjpotato/pen/rOLyqr/'>rOLyqr</a> by Kaijie Huang (<a href='http://codepen.io/hkjpotato'>@hkjpotato</a>) on <a href='http://codepen.io'>CodePen</a>.
+                                </iframe>
+                                <br>
+
+                            </div>
+
+
+                            <div style="text-align:left">
+                                <br>
+
+                                <p>Follow up: </p>
+
+                                <p>I have just finished a major function of this web app: the <b>motion detection</b> about the video stream. The motion detection is done on browser side using javascript. The major algorithim I use is image convolution, which involves running several matrix manipulation in a high rate(10 frames per second).
+                                </p>
+
+                                <br>
+
+                                <p>
+                                Afte trial and error, I used several tricks to improve the performance. For example, I used typed array to store the pixel values gained from the canvas element (getImageData). As we known, each pixel has 4 values for R, G, B, and alpha, and they are stored in UInt8 type. Instead of using Uint8ClampedArray to store them, I use Int32Array with some bit calculation(e.g. bit shifting) to reduce the number of for loops.</p>
+                                <br>
+
+                                <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras within 50 millisecond, including processing speed, GPS, liDar signals from various sessions at the same time.</p>
+                                <br>
+                            </div>
+
+                            <br>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+
 
     <script type="text/javascript">
         // var myIcon_frame_bg_color = "#928779";
@@ -558,7 +953,7 @@
         // var myIcon_frame_bg_color = "#887969";
 
         // var myIcon_frame_bg_color = "#917465";
-        var myIcon_frame_bg_color = "#887969";
+        var myIcon_frame_bg_color = "#777777";
 
        
         
@@ -577,7 +972,8 @@
           console.log("changing");
         }
 
-
+        //Here I add some animation effect to it
+        //I found this code on http://stackoverflow.com/questions/23222131/jquery-fire-action-when-element-is-in-view    
         $(document).ready(setTimeout(function() {
 
           $("#myIcon_frame").css({
@@ -591,7 +987,7 @@
           });
 
           $("#myIcon_frame").attr("class", "draw");
-        }, 300));
+        }, 600));
 
 
 
@@ -662,6 +1058,29 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+
+
+    <script type="text/javascript">
+
+      // $(function() {
+      //     $('body').on('click', '.page-scroll a', function(event) {
+      //         var $anchor = $(this);
+      //         $('html, body').stop().animate({
+      //             scrollTop: $($anchor.attr('href')).offset().top
+      //         }, 1500, 'easeInOutExpo');
+      //         event.preventDefault();
+      //     });
+      // });
+      $('#portfolioModal3').on('click', '.my-scroll a', function(event) {
+          var $anchor = $(this);
+          $('#portfolioModal3').stop().animate({
+              scrollTop: $($anchor.attr('href')).offset().top
+          }, 1500, 'easeInOutExpo');
+          event.preventDefault();
+      });
+
+    </script>
+
 
 </body>
 

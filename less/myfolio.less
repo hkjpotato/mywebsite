@@ -1,0 +1,214 @@
+
+@import "mixins.less";
+
+@brand-success: #928779;
+@brand-success: #928779;
+
+
+
+@colHighlight   : darken(@brand-success, 10%);
+@colBright   : brighten(@brand-success, 5%);
+
+body {
+    overflow-x: hidden;
+    color: #6f6861;
+}
+
+p {
+    font-size: 120%;
+}
+
+p.small {
+    font-size: 100%;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    color: @brand-success;
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", "Montserrat", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+.img-centered {
+    margin: 0 auto;
+}
+
+
+@dropDown       : false;
+.ddm() when (@dropDown) {
+  > .dropdown-menu {
+    background-color: @brand-success;
+    > li > a {
+      color: @brand-success;
+      &:hover,  &:focus {
+        color: @colHighlight;
+        background-color: @brand-sucess; }}
+    .divider {
+      background-color: @co;}}}
+.navbar-default {
+  background-color: @colBright;
+
+  .navbar-brand {
+    color: @brand-success;
+    &:hover, &:focus { 
+      color: @colHighlight; }}
+  .navbar-text {
+    color: @brand-success; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: @brand-success;
+        &:hover,  &:focus {
+          color: @colHighlight; }}
+      .ddm }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: @brand-success;
+        background-color: @colHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background-color: @colHighlight; }}}
+  .navbar-toggle {
+    border-color: @colHighlight;
+    &:hover, &:focus {
+      background-color: @colHighlight; }
+    .icon-bar {
+      background-color: @brand-success; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @brand-success; }
+  .navbar-link {
+    color: @brand-success;
+    &:hover {
+      color: @colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: @brand-success;
+      &:hover, &:focus {
+        color: @colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: @brand-success;
+        background-color: @colHighlight; }}}
+}
+
+
+@media(min-width:767px) {
+    .navbar-fixed-top {
+        padding: 14px 0;
+        -webkit-transition: padding 0.3s;
+        -moz-transition: padding 0.3s;
+        transition: padding 0.3s;
+        .navbar-brand {
+            font-size: 1.5em;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+    }
+    .navbar-fixed-top.navbar-shrink {
+        padding: 7px 0;
+        .navbar-brand {
+            font-size: 1.4em;
+        }
+    }
+}
+
+.navbar {
+    font-family: "Helvetica Neue", "Montserrat", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    a:focus {
+        outline: none;
+    }
+    .navbar-nav {
+        letter-spacing: 1px;
+        li {
+            a:focus {
+                outline: none;
+            }
+        }
+    }
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
+    box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
+}
+.navbar-default,
+.navbar-inverse {
+    border: none;
+}
+
+
+.btn-outline {
+    color: white;
+    font-size: 20px;
+    border: solid 2px white;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: @brand-success;
+        background: white;
+        border: solid 2px white;
+    }
+}
+
+
+
+.btn:focus,
+.btn:active,
+.btn.active {
+    outline: none;
+}
+
+.scroll-top {
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    width: 50px;
+    height: 50px;
+    z-index: 1049;
+    .btn {
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        line-height: 28px;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.portfolio-modal {
+    .modal-content {
+        border-radius: 0;
+        background-clip: border-box;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        min-height: 100%;
+        padding: 100px 0;
+        text-align: center;
+        img {
+            margin-bottom: 30px;
+        }
+    }
+
+    .modal-backdrop {
+        opacity: 0;
+        display: none;
+    }
+}
