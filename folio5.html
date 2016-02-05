@@ -36,6 +36,28 @@
           margin-right: 15px;
 
         }
+
+        #myWebRTC {
+            /*background-color: yellow;*/
+            color: #a8a8a8;
+            font-size: 80%;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            border:1px solid #d3d3d3;
+        }
+
+        .videoSection {
+            border-radius: 3px;
+            border:1px solid #d3d3d3;
+            margin: 10px;
+            float: left;
+            width: 310px;
+            height: 300px;
+        }
+        .canvasBlock, .introText {
+            margin: 5px;
+        }
     </style>
 
 
@@ -116,35 +138,71 @@
 
                                 <br>
 
-                                <p>Below are some sample codes. Due to confidential, some codes are hidden.</p>
-
-                             </div>
-
-                            <div>
-                                <br>
-                                <iframe height='457' scrolling='no' src='//codepen.io/hkjpotato/embed/rOLyqr/?height=457&theme-id=18712&default-tab=html' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/hkjpotato/pen/rOLyqr/'>rOLyqr</a> by Kaijie Huang (<a href='http://codepen.io/hkjpotato'>@hkjpotato</a>) on <a href='http://codepen.io'>CodePen</a>.
-                                </iframe>
-                                <br>
-
-                            </div>
-
-
-                            <div style="text-align:left">
-                                <br>
-
                                 <p>Follow up: </p>
 
-                                <p>I have just finished a major function of this web app: the <b>motion detection</b> about the video stream. The motion detection is done on browser side using javascript. The major algorithim I use is image convolution, which involves running several matrix manipulation in a high rate(10 frames per second).
+                                <p>I finished a major function of this web app: the <b>motion detection</b> about the video stream. The motion detection is done on browser side using javascript. The major algorithim I use is the so-called SSIM (structural similarity) calculation. Basically it is used for measuring the similarity between two images by comparing the pixel values. This algorithim involves running several matrix manipulation over several successive video frames in a high rate.
                                 </p>
 
                                 <br>
 
                                 <p>
-                                Afte trial and error, I used several tricks to improve the performance. For example, I used typed array to store the pixel values gained from the canvas element (getImageData). As we known, each pixel has 4 values for R, G, B, and alpha, and they are stored in UInt8 type. Instead of using Uint8ClampedArray to store them, I use Int32Array with some bit calculation(e.g. bit shifting) to reduce the number of for loops.</p>
+                                Performance was the biggest challenge for me when tried to solve this problem. Afte trial and error, I used several tricks to ensure it runs on the browser without jittering effect. For example, I used typed array to store the pixel values gained from the canvas element (getImageData). As we known, each pixel has 4 values for R, G, B, and alpha, and they are stored in UInt8 type. Instead of using Uint8ClampedArray to store them, I use Int32Array with some bit calculation(e.g. bit shifting) to reduce the number of for loops.</p>
                                 <br>
 
-                                <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras within 50 millisecond, including processing speed, GPS, liDar signals from various sessions at the same time.</p>
+                                <p>Below is an brief illustration on how I make it (Allow the web camera if you want to test it). If a motion is detected, it will be highlighted for 2 seconds. The sensitity can be modified based on the speed of the car.</p>
+
                                 <br>
+                                <div id="myWebRTC" class="col-lg-12" >
+                                    <div id="rawVideoSection" class="videoSection">
+                                        <div class="canvasBlock">
+                                            <video autoplay="" id="vid" width="300" height="220"></video>
+                                        </div>
+                                        <div class="introText" >
+                                            <p>Use VanillaJS to get the web camera and stream it to the HTML5 video element.</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="greyCanvasSection" class="videoSection" >
+                                        <div class="canvasBlock">
+                                            <canvas id="rawcanvas"></canvas>
+                                        </div>
+                                        <div class="introText">
+                                            <p>Use drawImage function to render the video to the canvas above.</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="blurCanvasSection" class="videoSection" >
+                                        <div class="canvasBlock">
+                                            <canvas id="greycanvas"></canvas>
+                                        </div>
+                                        <div class="introText">
+                                            <p>Use the getImageData to get the pixel value of the current frame. Calculate the grey scale image to reduce scale of data.</p>
+                                        </div>
+                                    </div>
+
+                                  <div id="finalCanvasSection" class="videoSection">
+                                        <div class="canvasBlock">
+                                            <canvas id="blurcanvas"></canvas>
+                                        </canvas>
+
+                                        </div>
+                                        <div class="introText">
+                                            <p>Use convolution to detect the edge, and feed the processed data to the algorithim loop so as to detect a motion.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras 10 frames per second, including processing speed, GPS, liDar signals from various sessions at the same time.</p>
+                                <br>
+
+                                <p>I also implemented two image processing web applications using canvas and convolution.</p>
+                                <ol>
+                                    <li><a href="https://gatechmsl.com/imgProcess/" target="_blank">Image Process App</a></li>
+
+                                    <li><a href="https://gatechmsl.com/imgEnhance/" target="_blank">Image Enhance App</a></li>
+
+                                </ol>
                              </div>
                              <br>
                             <a type="button" class="btn btn-default" href="index.html#portfolio"><i class="fa fa-times"></i> Close</a>
@@ -169,6 +227,12 @@
     <script src="js/cbpAnimatedHeader.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+    
+    <!-- Load JS feat -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsfeat/0.0.8/jsfeat-min.js"></script>
+
+    <!-- Load the ssim function -->
+    <script src="mt/ssim.js"></script>
 
     <script type="text/javascript">
         // $("#whyKeynote").hide();
