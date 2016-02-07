@@ -58,6 +58,11 @@
         .canvasBlock, .introText {
             margin: 5px;
         }
+
+        .ending {
+            /*display: block;*/
+            float: left;
+        }
     </style>
 
 
@@ -152,7 +157,7 @@
                                 <p>Below is an brief illustration on how I make it (Allow the web camera if you want to test it). If a motion is detected, it will be highlighted for 2 seconds. The sensitity can be modified based on the speed of the car.</p>
 
                                 <br>
-                                <div id="myWebRTC" class="col-lg-12" >
+                                <div id="myWebRTC" class="col-lg-12 col-md-12" >
                                     <div id="rawVideoSection" class="videoSection">
                                         <div class="canvasBlock">
                                             <video autoplay="" id="vid" width="300" height="220"></video>
@@ -192,17 +197,19 @@
                                     </div>
                                 </div>
 
+                                <div class="ending">
+                                    <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras 10 frames per second, including processing speed, GPS, liDar signals from various sessions at the same time.</p>
+                                    <br>
 
-                                <p>In the most updated version (version 9), I was able to run a steady motion detection function on both left and right cameras 10 frames per second, including processing speed, GPS, liDar signals from various sessions at the same time.</p>
-                                <br>
+                                    <p>I also implemented two image processing web applications using canvas and convolution.</p>
+                                    <ol>
+                                        <li><a href="https://gatechmsl.com/imgProcess/" target="_blank">Image Process App</a></li>
 
-                                <p>I also implemented two image processing web applications using canvas and convolution.</p>
-                                <ol>
-                                    <li><a href="https://gatechmsl.com/imgProcess/" target="_blank">Image Process App</a></li>
+                                        <li><a href="https://gatechmsl.com/imgEnhance/" target="_blank">Image Enhance App</a></li>
 
-                                    <li><a href="https://gatechmsl.com/imgEnhance/" target="_blank">Image Enhance App</a></li>
+                                    </ol>
 
-                                </ol>
+                                </div>
                              </div>
                              <br>
                             <a type="button" class="btn btn-default" href="index.html#portfolio"><i class="fa fa-times"></i> Close</a>

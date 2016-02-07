@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kaijie Huang's Personal Website</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> scroll-->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+    <!-- Custom CSS -->
+    <link href="css/myfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- use of google fonts -->
+    <!-- <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+    <style type="text/css">
+        #nav_icon {
+          height: 30px;
+          margin-top: 10px;
+          margin-right: 15px;
+
+        }
+
+        .myContent {
+          font-size: 90%;
+        }
+
+        li {
+          font-size: 110%;
+        }
+
+        a {
+          color: #ef837a;
+        }
+
+    </style>
+
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+                <a class="pull-left" href="index.html#portfolio">
+                  <img id="nav_icon" alt="Brand" src="./img/nav_icon.png">
+                </a>
+                <a class="navbar-brand" href="index.html#portfolio">
+                  KJ's Website
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="index.html#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="index.html#portfolio">Portfolio</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="index.html#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+   <!-- modal body -->
+   <div class="portfolio-modal" id="portfolioModal1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                        <div class="modal-body">
+                            <h2>My thoughts on ReactJS</h2>
+                            <br>
+
+                            
+                            <div class="myContent" style="text-align:left">
+                              <br>
+                              <!-- <h3>About</h3> -->
+                              <p>
+                                I am thinking what I should put on this folio. I still have several projects I wish to show, but I am really attracted by somthing else now, which is called ReactJS. Thus at this moment I will just share some of my thoughts about React while learning it (like a post in a blogger).
+                              </p>
+
+                              <br>
+
+                              <p>
+                                So I am still a new hand in this fantastic front end world. I got most of my front end experience from the Ford Remote Control Car project. And I feel lucky to have a chance to work in the real industry as a UI developer now. More luckily, the company I work, Cvent.Inc, is moving to ReactJS from the traditional MVC mdoel developed by ASP.NET. As many beginners, I start to learn React from the <a target="_blank" href="https://facebook.github.io/react/docs/thinking-in-react.html" >official website</a>, some <a target="_blank" href="https://egghead.io/series/react-fundamentals" >egghead videos</a>, etc. And then I heard that Uber Visualization Team is now using ReactJS to do the Visualization.</p>
+
+                              <br>
+                              <p> Wait...What?!
+                              </p>
+
+                              <br>
+
+                              <p>What I know about React at this moment, is that it uses one way data flow, views each component as a state machine. And because of the virtual dom, it is fast. But to do visualization? to manipulate SVG? It sounds weird for me at first.</p>
+                              <br>
+
+                              <p>For people who have experience with web visualization, chances are we are using a library called D3. And for a period of time, I thought that D3 is the only choice to manipulate SVG and build those charts and graphs. Not until I read this great article from Jerome Cukier <a target="_blank" href="http://www.jeromecukier.net/blog/2015/05/19/you-may-not-need-d3/" >"You may not d3"</a>, did I realized that many functions of D3 can be done with native Javascript. So, even without D3, we can make the visualization using React.
+                              </p>
+                              <br>
+
+                              <p>The first question comes to me for using React is to do vis is how to realize "brushing and linking" in multi-views interface. "Brushing and linking" means interactive changes made in one visualization are automatically reflected in the other visualizations. For example, hovering on the data point in one view will also highlight the corresponding point in another view. 
+                              </p>
+                              <br>
+
+                              <p>The key problem here is how to build a connection between different views. In the uber visualization project, I solved this problem in the following way (for bar chart).</p>
+                                <ol>
+                                  <li>Bind the data to the svg element.</li>
+                                  <li>Attach a callback function to hear the action on that element (e.g. click& hover)</li>
+                                  <li>In the callback, check the attached data and use it as a parameter to modified the other view</li>
+                                </ol>
+                              <br>
+
+                              <p>However, in React, I am thinking where I should put this callback function. Should I call it from the child element, or from the parent element. Does a change in UI, like css style, necessarily means a change in "state"? If not, who should control this change? How I should encapsulate each view so as to make them reusable?</p>
+
+                              <br>
+
+                              <p>The best way to learn something is to actually work on it. To get myself be familar with React, I will work on the following steps.</p>
+
+                              <br>
+
+                              <ol>
+                                <li>Build a vis based on React</li>
+                                <li>Change the UI with/without changing the state</li>
+                                <li>Link two vis</li>
+                              </ol>
+                              
+                              <br>
+
+                              <div>
+
+                              <iframe scrolling="no" width="100%" height="350" src="//jsfiddle.net/hkjpotato/ssnsgayp/3/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                              </div>
+
+
+                              <br>
+
+                              <h4>To be continued...</h4>
+
+                              <p>If you are interested in the same topic, I recommend the following articles for you</p>
+
+
+                              <ul>
+                                <li><a href="https://facebook.github.io/react/tips/inline-styles.html" target="_blank">React Inline Style</a></li>
+                                <li><a href="http://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices" target="_blank">Discussion on React inline style best practices</a></li>
+                                <li><a href="https://css-tricks.com/the-debate-around-do-we-even-need-css-anymore/" target="_blank">"Do We Even Need CSS Anymore?"</a></li>
+                              </ul>
+                             
+
+                             </div>
+                             <br>
+                            <a type="button" class="btn btn-default" href="index.html#portfolio"><i class="fa fa-times"></i> Close</a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+
+
+
+
+
+
+</body>
+
+
+</html>
+
+
+
+
+
