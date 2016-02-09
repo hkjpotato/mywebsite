@@ -62,8 +62,8 @@
         defaultThArray[0] = {};
         //0 - 1
         defaultThArray[0].thq = 0.001;
-        defaultThArray[0].ths = 50;
-        defaultThArray[0].tht = 70;
+        defaultThArray[0].ths = 180;
+        defaultThArray[0].tht = 180;
 
         var currTh = {};
         //for current values
