@@ -49,6 +49,68 @@
           color: #ef837a;
         }
 
+
+
+
+  .demo8-outer {
+  background-color: #EEE;
+  color: #FFF;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font: 28px/1em "Helvetica";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  }
+  .demo8 {
+  width: 300px;
+  height: 320px;
+  }
+  .demo8-item {
+  position: absolute;
+  width: 300px;
+  height: 70px;
+  overflow: visible;
+  pointer-events: auto;
+  transform-origin: 50% 50% 0px;
+  border-radius: 4px;
+  color: rgb(153, 153, 153);
+  line-height: 76px;
+  padding-left: 32px;
+  font-size: 24px;
+  font-weight: 400;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  }
+  #demo1-container {
+  padding: 15px 20px;
+  position: absolute;
+  width: 340px;
+  height: 350px;
+  overflow: visible;
+  pointer-events: auto;
+  border-radius: 4px;
+  background-color: #cdc7c3;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px;
+  cursor: url('./react/cursor.png') 39 39, auto;
+  }
+
+  #demo1-container-box {
+  width: 340px;
+  height: 350px;
+  margin: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  }
+
     </style>
 
 
@@ -110,7 +172,7 @@
                             
                             <div class="myContent" style="text-align:left">
                               <br>
-                              <h3>First Post: React & Information Visualization</h3>
+                              <h4>1st Post: React & Information Visualization</h4>
                               <!-- <h3>About</h3> -->
                               <p>
                                 I am thinking what I should put on this folio. I still have several projects I wish to show, but I am really attracted by somthing else now, which is called ReactJS. Thus at this moment I will just share some of my thoughts about React while learning it (like a post in a blogger).
@@ -164,13 +226,11 @@
 
                               <div>
 
-                              <iframe scrolling="no" width="100%" height="350" src="//jsfiddle.net/hkjpotato/ssnsgayp/3/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                              <iframe scrolling="no" width="100%" height="350" src="//jsfiddle.net/hkjpotato/ssnsgayp/12/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                               </div>
 
 
                               <br>
-
-                              <h4>To be continued...</h4>
 
                               <p>If you are interested in the same topic, I recommend the following articles for you</p>
 
@@ -182,8 +242,7 @@
                               </ul>
                               <br>
 
-
-                              <h3>React Animation</h3>
+                              <h4>2nd Post: React Animation</h4>
 
                               <p>Since I have to be prepared for the coming React work I am now more focused on understanding the basic of this library instead of Info Vis. And then I find this amazing video</p>
                               <div>
@@ -193,6 +252,7 @@
 
 
                               <p><i>"Animation APIs parameterized by eg duration and curve are fundamentally opposed to continuous, fluid interactivity"</i> -- Andy Matuschak</p>
+                              <br>
 
                               <p>To sum up, animation in the react is:</p>
 
@@ -215,8 +275,22 @@
                               <br>
 
 
-                              <p>This is amazing for me since most of my animations are based on CSS3, e.g. the icon loading animation for my website and cube rotation app. After all, there are all css transition and animation. I remember that animations in AngularJS are also based on CSS classes. And while it is easy to use, it is still a blackbox for the developers. 
-                              <p>This api brings us more control while still maintains the performance. After checking the API documents I realize this guy makes it by the requestAnimationFrame and some mechanics functions, which is pretty awesome!</p>
+                              <p>This is amazing for me since most of my animations are based on CSS3, e.g. the icon loading animation for my website and cube rotation app. After all, there are all css transition and animation. I remember that animations in AngularJS are also based on CSS classes. And while it is easy to use, it is still a blackbox for the developers.</p>
+                             <br>
+
+                              <p>This api brings us more control while still maintains the performance. If you check the source code you will notice that it is made by the requestAnimationFrame and some mechanics functions, which is pretty awesome! Check the demo below to see how smooth the animation is.
+                              </p>
+                             <br>
+
+                              <div id="demo1-container-box">
+                                <div id="demo1-container"></div>
+                              </div>
+                             <br>
+
+                              <h4>To be continued...</h4>
+
+
+
                              </div>
                              <br>
                             <a type="button" class="btn btn-default" href="index.html#portfolio"><i class="fa fa-times"></i> Close</a>
@@ -241,6 +315,8 @@
     <script src="js/cbpAnimatedHeader.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+    <script src="react/bundle.js"></script>
+
 
     <script type="text/javascript">
 
