@@ -14,7 +14,6 @@
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> scroll-->
 
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 
@@ -25,7 +24,6 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- use of google fonts -->
-    <!-- <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> -->
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 
@@ -116,7 +114,6 @@
           }
         }
 
-
         #myIcon, #frame {
           -webkit-transition: all 2.5s linear .3s;
           -moz-transition: all 2.5s linear .3s;
@@ -130,14 +127,6 @@
         }
       </style>
       <style type="text/css">
-        #iframeDatabase {
-            width: 100%;
-            min-width: 360px;
-            height: 548px;
-            border:0;
-        }
-
-
         #headShot {
             border-radius: 80%;
             width:80%;
@@ -145,47 +134,51 @@
             max-width:300px;
             opacity: 0.8;
         }
- 
-        #whyKeynote {
-            padding: 10px;
-            border-radius: 10px;
-            -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-            -moz-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-            box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-            /*visibility: hidden;*/
-            background-color: #47d1af;
-        }
-
-        #whyKeynote p {
-            font-size: 110%;
-            /*color: #47d1af;*/
-            /*text-align: center;*/
-        }
-
-
-        #whyKeynote a {
-            color: #FFFFFF;
-        }
-
 
         .portfolio-link {
             -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
             -moz-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
             box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-
         }
-
-        .videoSrc {
-          /*display:none;*/
-        }
-
     </style>
 
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
+    <script type="text/javascript">
+    function get_browser(){
+        var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+        if(/trident/i.test(M[1])){
+            tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
+            return {name:'IE',version:(tem[1]||'')};
+            }   
+        if(M[1]==='Chrome'){
+            tem=ua.match(/\bOPR\/(\d+)/)
+            if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+            }   
+        M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+        if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+        return {
+          name: M[0],
+          version: M[1]
+        };
+     }
+
+     function checkBrowser() {
+       var browser = get_browser();
+       console.log(browser);
+       if (browser.name !== "Safari" || parseInt(browser.version) > 9) {
+        console.log("good version");
+        $('#myIcon_frame').css({"border":"8px solid white"})
+       } else {
+        console.log("not support browser");
+       }
+     }
+    </script>
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" onload="checkBrowser()">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -352,15 +345,6 @@
                     <div id="my-intro" class="intro-text">
                         <p style="font-size: 180%"><i>"Hi, I am Kaijie(KJ) Huang, a Front-end/UI developer passionate about web user experience!"</i>
                         </p>
-
-
-<!--                         <p style="color:black;font-size: 180%"><i>
-                          People like simplified design. However, a simple design like an icon actually has a lot of reasons, such as golden ratio, behind it. As a front end UX developer, I believe in such intentional and detailed design could make us a better world.</i>
-                        </p> -->
-                        <!-- <span class="name">Kaijie Huang (KJ)</span> -->
-                        <!-- <hr class="star-light"> -->
-                        <!-- <span class="skills">Web Developer & User Experience Designer</span> -->
-
                     </div>
                     <div id="downArrowSection" class="page-scroll">            
                         <a href="#portfolio" class="btn btn-circle">
@@ -386,10 +370,9 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio1.html" class="portfolio-link" >
+                    <a href="http://www.kjhuang.com/folio1.html" class="portfolio-link" >
                         <div class="caption">
                             <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
                                 <p>AngularJS & Database</p>
                             </div>
                         </div>
@@ -398,11 +381,9 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio2.html" class="portfolio-link">
+                    <a href="http://www.kjhuang.com/folio2.html" class="portfolio-link">
                         <div class="caption">
                             <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
-                                <!-- <p>CSS3 animation & AngularJS</p> -->
                                 <p>Information Visualization</p>
                             </div>
                         </div>
@@ -410,10 +391,9 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio3.html" class="portfolio-link">
+                    <a href="http://www.kjhuang.com/folio3.html" class="portfolio-link">
                         <div class="caption">
                             <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
                                 <p>CSS3 animation & AngularJS</p>
                             </div>
                         </div>
@@ -421,10 +401,9 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio4.html" class="portfolio-link">
+                    <a href="http://www.kjhuang.com/folio4.html" class="portfolio-link">
                         <div class="caption">
                             <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
                                 <p>Product Design & Prototyping</p>
 
                             </div>
@@ -433,26 +412,20 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio5.html" class="portfolio-link">
+                    <a href="http://www.kjhuang.com/folio5.html" class="portfolio-link">
                         <div class="caption">
                             <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
-                                <!-- <p>Android Developement</p> -->
                                 <p>WebRTC</p>
-                                <!-- <p>Product Design & User Testing</p> -->
-
                             </div>
                         </div>
                         <img src="img/portfolio/webrtc.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="folio6.html" class="portfolio-link">
+                    <a href="http://www.kjhuang.com/folio6.html" class="portfolio-link">
                         <div class="caption">
                             <div class="caption-content">
-                                <!-- <i class="fa fa-search-plus fa-3x"></i> -->
                                 <p>Some thoughts...</p>
-
                             </div>
                         </div>
                         <img src="img/portfolio/reactlogo.png" class="img-responsive" alt="">
@@ -468,12 +441,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>ABOUT</h2>
-                    <!-- <hr class="star-light"> -->
                     <br>
                 </div>
             </div>
             <div class="row">
-                <!-- Hi Mariam, here I use grid system to change the layout of my pic -->
                 <div id="headShotContainer" class="col-lg-4 col-lg-offset-2">
                     <img id="headShot" class="img-responsive" src="img/headshot.png" alt="KJ's head shot"/>
                 </div>
@@ -482,7 +453,7 @@
                     <p>I was working as a graduate research assistant at the <a href="http://www.ece.gatech.edu/research/labs/msl/">Multimedia & Sensors Lab(MSL)</a>, developing webRTC(Web Real-Time Communication) applications and web-based image processing application.</p>
 
                     <p>And now I am working as a technical intern at the <a href="http://www.cvent.com/">Cvent.Inc</a> at Atlanta, in charge of developing web UI using ReactJS with webpack framework.</p>
-<!--                     <p>I am now working as a graduate research assistant at the <a href="http://www.ece.gatech.edu/research/labs/msl/">Multimedia & Sensors Lab(MSL)</a> at Gatech, in charge of developing webRTC(Web Real-Time Communication) applications and web-based image processing application.</p> -->
+
                     <p>I love food TV show and I am a fan of Anthony Bourdain.</p>
                 </div>
 
@@ -549,50 +520,22 @@
         </a>
     </div>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <script type="text/javascript">
-        // var myIcon_frame_bg_color = "#928779";
-        // var myIcon_frame_bg_color = "#C9C3BC";
-        // var myIcon_frame_bg_color = "#887969";
-
-        // var myIcon_frame_bg_color = "#917465";
         var myIcon_frame_bg_color = "#887969";
-
-       
-        
-        // $('#downArrow').toggleClass("hover");
 
         $('#my-intro').bind('transitionend webkitTransitionEnd', function(){
             console.log("transitionend for my intro");
-
             $('#downArrow').toggleClass("hover");
-            // setTimeout(function() {
-            //     $('#downwArrow').toggleClass("hover");
-            // }, 500);
         });
-
-        // $('#myIcon_frame').bind('transitionend webkitTransitionEnd', function(){
-        //     console.log("transitionend for my icon_frame");
-        // });
-
-        function showWhyKeynote() {
-          $("#whyKeynote").toggle("slow");
-          console.log("changing");
-        }
-
 
         $(document).ready(setTimeout(function() {
 
           $("#myIcon_frame").css({
-            // "opacity": "1",
             "margin-top": "0",
             "border-radius": "0%",
             "width": "180px",
             "height": "180px",
-            // "background":"white",
-            // "border-color":"white",
           });
 
           $("#myIcon_frame").attr("class", "draw");
@@ -622,15 +565,8 @@
           });
 
           $("#iconDescription").css("opacity", 1);
-
           $("#my-intro").css("opacity", 1);
           $("#downArrowSection").css("opacity", 1);
-
-
-          // $("#my-intro").show();
-          $("#whyKeynote").hide();
-
-
         });           
 
         $.fn.isOnScreen = function(){
@@ -649,10 +585,7 @@
             
             return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
             
-        };   
-
-      
-
+        };
     </script>
 
 
