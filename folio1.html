@@ -38,10 +38,16 @@
         }
 
 
-      #iframeDatabase {
+      #iframeDatabase, #iframeAngular {
           width: 100%;
           min-width: 360px;
           height: 548px;
+          border:0;
+      }
+      #iframeAngular {
+          width: 100%;
+          min-width: 780px;
+          height: 620px;
           border:0;
       }
     </style>
@@ -135,7 +141,54 @@
                                 The detailed project description, including schema diagram and EER diagram for the database, can be found on my <a href="https://github.com/hkjpotato/dbproject">github</a>.
                                 </p>
 
+
+
                              </div>
+                            
+                            <br>
+                            <br>
+
+
+                            <h3>Follow Up...</h3>
+                            <div class="myContent" style="text-align:left">
+                               <p>This app is my first experience with full stack development. As a course project with limit time, my primary purpose is to achieve the functional requirements. However, I did not spend too much time on structuring the app and making complete use of angular at that time. For examples</p>
+                                <br>
+                                <ol>
+                                  <li><p>Angular is famous for developing single page web app. However, this app is actually 'stateless': each UI page is corresponding to a separate php file. The result is a bundle of php documents.</p></li>
+                                  <li><p>The code was not modularized. The view, model, and control are all stacked in the same php file.</p></li>
+                                </ol>
+                                <br>
+                                <p>After learning more about AngularJS, especially the idea of state and router. I have gained a better understanding of the MVC model in front end. Below is a simple one page Web App I make based on ui-router.
+                                </p>
+                                <br>
+
+                                <div >
+                                    <iframe id="iframeAngular" src="http://52.24.114.125/ang-ui/src/" ><p>Your browser does not support iframes.</p></iframe>
+                                </div>
+                                <br>
+
+                                <p><a href="http://52.24.114.125/ang-ui/src/" target="_blank">Live Demo(where you can see how the ui-router works by changing the location hash)</a>.
+                                </p>
+
+                                <br>
+
+
+                                <p><a href="https://github.com/hkjpotato/todo-app-by-angular-ui-router" target="_blank">project github</a>.
+                                </p>
+
+                                <br>
+
+                                <ul>
+                                    <li><p>This simple app has a true MVC(Model-View-Control) front end. The model is in charge of identify the logic and methods, including connecting to the database(fake by json data here for demo). Model is injected to controller to control the view (UI)</p></li>
+                                    <li><p>"UI-Router" is used to navigate through the app at different state.</p></li>
+                                    <li><p>Thus the app is totally modularized. It is modularized in terms of state of the app as well as the file structure. For example, instead of categorizing the file by types like js or css, files related to one model of the app function are put into the same directory. This is the current trend for front end development since it makes the management and testing much easier.</p></li>
+                                    <li><p>The data fetch from the backend is cached. (using promise and $q). I will dig more into the performance optimization, including using build tool like webpack or gulp in the coming future.</p></li>
+                                </ul>
+                                <br>
+
+
+                            </div>
+
                              <br>
                             <a type="button" class="btn btn-default" href="index.html#portfolio"><i class="fa fa-times"></i> Close</a>
                         </div>
