@@ -46,7 +46,7 @@ header{
 	cursor: default;
 	/*padding-top: 40px;*/
 	/*padding-left: 20px;*/
-	padding: 12px 15px;
+	/*padding: 12px 15px;*/
 	color: #fff;
 	background-color: #2196f3;
 }
@@ -54,7 +54,7 @@ header .icon {
 	/*font-size: 5em;*/
 }
 header h1{
-	font-size: 1.3em;
+	font-size: 1.3em; 
 	/*font-size: 300%;*/
 	font-weight: 400;
 	margin: 0;
@@ -83,8 +83,8 @@ header h1{
 
 
 #directions-form .travel-option{
-	/*background-color: rgba(0,0,0,.05);*/
-	margin-top: 5px;
+	background-color: rgba(0,0,0,.05);
+	/*margin-top: 5px;*/
 	/*padding: 5px 0;*/
 	-webkit-flex: 1 0;
 	flex: 1 0;
