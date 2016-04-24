@@ -41,8 +41,8 @@ a:hover{
 }
 
 header{
-  	-webkit-flex: 1 0 6%;  /*Safari*/ 
-  	flex:  1 0 6%;
+  	-webkit-flex: 1 0 8%;  /*Safari*/ 
+  	flex:  1 0 8%;
 	cursor: default;
 	/*padding-top: 40px;*/
 	/*padding-left: 20px;*/
@@ -61,8 +61,8 @@ header h1{
 }
 
 #map-canvas{
-  	-webkit-flex: 1 0 69%;  /*Safari*/ 
-  	flex:  1 0 69%;
+  	-webkit-flex: 1 0 67%;  /*Safari*/ 
+  	flex:  1 0 67%;
 
 }
 
