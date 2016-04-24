@@ -1,13 +1,13 @@
-/*html{ height: 100% }*/
+html{ height: 100% }
 body{
-	/*height: 100%;*/
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	font-family: RobotoDraft, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 input, button, select{
 	font-family: RobotoDraft, Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-size: 250%;
+	font-size: 1em;
 }
 
 a{
@@ -23,7 +23,7 @@ a:hover{
 
 
 #rootApp {
-	/*height: 10%;*/
+	height: 100%;
 	/*width: 50%;*/
 	display: -webkit-flex; /* Safari */
   	-webkit-flex-flow: column nowrap;  /* Safari */
@@ -33,32 +33,36 @@ a:hover{
 }
 
 header{
-  	-webkit-flex: 1 0 120px;  /*Safari*/ 
-  	flex:  1 0 120px;
+  	-webkit-flex: 1 1 2em;  /*Safari*/ 
+  	flex:  1 1 2em;
 	cursor: default;
-	padding-top: 40px;
-	padding-left: 20px;
+	/*padding-top: 40px;*/
+	/*padding-left: 20px;*/
+	padding: 12px 15px;
 	color: #fff;
 	background-color: #2196f3;
 }
+header .icon {
+	/*font-size: 5em;*/
+}
 header h1{
-	line-height: 150%;
-	font-size: 300%;
+	font-size: 1.3em;
+	/*font-size: 300%;*/
 	font-weight: 400;
 	margin: 0;
 	padding: 0;
 }
 
 #map-canvas{
-  	-webkit-flex: 1 0 1000px;  /*Safari*/ 
-  	flex:  1 0 1000px;
+  	-webkit-flex: 2 0 26em;  /*Safari*/ 
+  	flex:  2 0 26em;
 
 }
 
 
 #directions-form {
-  	-webkit-flex: 2 1 500px; /* Safari */
-  	flex:  2 1 500px;
+  	-webkit-flex: 1 0 5em; /* Safari */
+  	flex:  1 0 5em;
 	padding: 15px;
 	word-spacing: 10px;
 
@@ -72,16 +76,20 @@ header h1{
 
 #directions-form .travel-option{
 	/*background-color: rgba(0,0,0,.05);*/
-	-webkit-flex: 1 0 80px;
-	flex: 1 0 80px;
+	margin-top: 5px;
+	/*padding: 5px 0;*/
+	-webkit-flex: 1 0;
+	flex: 1 0;
 	/*padding-top: 20px;*/
 	 -webkit-align-self: flex-start;
 	align-self: flex-start;
 }
 
 #directions-form .address {
-	-webkit-flex: 1 0 100px;
-	flex: 1 0 200px;
+	-webkit-flex: 1 0;
+	flex: 1 0;
+
+	width: 100%;
 
 	display: -webkit-flex; 
   	-webkit-flex-flow: row nowrap;  
@@ -97,41 +105,47 @@ header h1{
 
 }
 
+
+#directions-form .form-footer{
+	-webkit-flex: 1 0;
+	flex: 1 0;	
+	margin-top: 5px;
+}
+
 .address .field-section{
-	-webkit-flex: 1 0 400px;
-	flex: 1 0 400px;
+	/*border: 1px solid black;*/
+	-webkit-flex: 1 2 198px;
+	flex: 1 2 198px;
 }
 
 .address #flip-direction{
+	/*border: 1px solid black;*/
 	color: #aaa;
 	box-sizing: border-box;
+	padding: 10px;
+	line-height: 20px;
 	display: block;
-	padding-left: 20px;
-	-webkit-flex: 1 0 60px;
-	flex: 1 0 100px;
+	-webkit-flex: 2 1 20px;
+	flex: 2 1 20px;
 
 }
 
-
-#directions-form .form-footer{	
-	-webkit-flex: 1 0 300px;
-	flex: 1 0 300px;
-}
 
 
 
 #directions-form button{
-	border: 0;
 	width: 100%;
-	height: 120px;
-	/*border-radius: 5%;*/
+	height: 50px;
+	border: 0;
+	padding: 7px 10px;
+	margin: 0;
 	background-color: #2196f3;
 	color: #fff;
 	font-weight: 500;
 	text-align: center;
 	text-transform: uppercase;
 	cursor: pointer;
-	box-shadow: 0 10px 15px #aaa;
+	box-shadow: 0 2px 3px #aaa;
 }
 
 #directions-form select{
@@ -142,10 +156,11 @@ header h1{
 
 #directions-form input{
 	border: 0;
-	padding: 50px 0;
-	border-bottom: 10px solid #e0e0e0;
-	margin: 0 0 0px;
-	width: 400px;
+	padding: 10px 0;
+	border-bottom: 2px solid #e0e0e0;
+	margin: 0 0 5px;
+	/*width: 150px;*/
+	width: 100%;
 	box-sizing: border-box;
 	outline: 0;
 	-webkit-transition: border-bottom-color .3s;

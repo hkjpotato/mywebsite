@@ -225,7 +225,7 @@ var App = React.createClass({displayName: "App",
 		return (
 			React.createElement("div", {id: "rootApp"}, 
 				React.createElement("header", null, 
-					React.createElement("h1", null, React.createElement(Icon, {type: "pedestrian", width: "50", height: "50"}), "Find My Way")
+					React.createElement("h1", null, React.createElement(Icon, {type: "pedestrian", width: "36", height: "36"}), "Find My Way")
 				), 
 				React.createElement(Map, null), 
 				React.createElement(RouteForm, {start: this.state.start, end: this.state.end, units: units, travelMode: travelMode, onUnitChange: this.handleUnitChange, onTravelModeChange: this.handleTravelModeChange})
@@ -358,7 +358,7 @@ var RouteForm = React.createClass({displayName: "RouteForm",
 				React.createElement("div", {className: "field-section"}, 
 					React.createElement("input", {ref: "start", id: "directions-start", placeholder: "Start", required: true})
 				), 
-				React.createElement("a", {href: "#", id: "flip-direction", onClick: this.handleFlip, title: "Flip origin and destination", tabIndex: "-1"}, React.createElement(Icon, {type: "arrow-right", width: "60", height: "60"})), 
+				React.createElement("a", {href: "#", id: "flip-direction", onClick: this.handleFlip, title: "Flip origin and destination", tabIndex: "-1"}, React.createElement(Icon, {type: "arrow-right", width: "20", height: "20"})), 
 				React.createElement("div", {className: "field-section"}, 
 					React.createElement("input", {ref: "end", id: "directions-end", placeholder: "Destination", required: true})
 				)

@@ -225,7 +225,7 @@ var App = React.createClass({
 		return (
 			<div id="rootApp">
 				<header>
-					<h1><Icon type="pedestrian" width="50" height="50"></Icon>Find My Way</h1>
+					<h1><Icon type="pedestrian" width="36" height="36"></Icon>Find My Way</h1>
 				</header>
 				<Map />
 				<RouteForm start={this.state.start} end={this.state.end} units={units} travelMode={travelMode} onUnitChange={this.handleUnitChange} onTravelModeChange={this.handleTravelModeChange} />
@@ -358,7 +358,7 @@ var RouteForm = React.createClass({
 				<div className="field-section">
 					<input ref="start" id="directions-start" placeholder="Start" required />
 				</div>
-				<a href="#" id="flip-direction" onClick={this.handleFlip} title="Flip origin and destination" tabIndex="-1"><Icon type="arrow-right" width="60" height="60"></Icon></a>
+				<a href="#" id="flip-direction" onClick={this.handleFlip} title="Flip origin and destination" tabIndex="-1"><Icon type="arrow-right" width="20" height="20"></Icon></a>
 				<div className="field-section">
 					<input ref="end" id="directions-end" placeholder="Destination" required />
 				</div>
