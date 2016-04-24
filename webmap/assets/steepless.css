@@ -72,8 +72,8 @@ header h1{
 
 #directions-form .travel-option{
 	/*background-color: rgba(0,0,0,.05);*/
-	-webkit-flex: 1 0 40px;
-	flex: 1 0 40px;
+	-webkit-flex: 1 0 80px;
+	flex: 1 0 80px;
 	padding-top: 20px;
 	 -webkit-align-self: flex-start;
 	align-self: flex-start;
