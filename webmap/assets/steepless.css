@@ -74,7 +74,7 @@ header h1{
 	/*background-color: rgba(0,0,0,.05);*/
 	-webkit-flex: 1 0 80px;
 	flex: 1 0 80px;
-	padding-top: 20px;
+	/*padding-top: 20px;*/
 	 -webkit-align-self: flex-start;
 	align-self: flex-start;
 }

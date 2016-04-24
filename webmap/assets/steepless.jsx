@@ -113,7 +113,7 @@ var App = React.createClass({
 
 		var locations = hash.split('/');
 		console.log("hash received ", hash);
-		var travelMode = decodeURIComponent(locations[0]).toUpperCase();
+		var travelMode = decodeURIComponent(locations[0]);
 		// var travelMode = locations[0];
 
 		var origin = decodeURIComponent(locations[1]).toUpperCase();
