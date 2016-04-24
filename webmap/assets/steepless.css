@@ -41,8 +41,8 @@ a:hover{
 }
 
 header{
-  	-webkit-flex: 1 0 10%;  /*Safari*/ 
-  	flex:  1 0 10%;
+  	-webkit-flex: 1 0 6%;  /*Safari*/ 
+  	flex:  1 0 6%;
 	cursor: default;
 	/*padding-top: 40px;*/
 	/*padding-left: 20px;*/
@@ -61,15 +61,15 @@ header h1{
 }
 
 #map-canvas{
-  	-webkit-flex: 1 0 60%;  /*Safari*/ 
-  	flex:  1 0 60%;
+  	-webkit-flex: 1 0 69%;  /*Safari*/ 
+  	flex:  1 0 69%;
 
 }
 
 
 #directions-form {
-  	-webkit-flex: 1 0 30%; /* Safari */
-  	flex:  1 0 30%;
+  	-webkit-flex: 1 0 25%; /* Safari */
+  	flex:  1 0 25%;
 	padding: 15px;
 	word-spacing: 10px;
 
@@ -82,7 +82,7 @@ header h1{
 
 
 #directions-form .travel-option{
-	background-color: rgba(0,0,0,.05);
+	/*background-color: rgba(0,0,0,.05);*/
 	/*margin-top: 5px;*/
 	/*padding: 5px 0;*/
 	-webkit-flex: 1 0;
