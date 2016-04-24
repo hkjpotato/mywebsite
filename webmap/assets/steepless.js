@@ -1,6 +1,6 @@
-var getLocation = function(callback) {
+var getLocation = function(success, error) {
 	if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(callback);
+        navigator.geolocation.getCurrentPosition(success, error, {timeout: 10000});
 	} else {
 		alert("no support html5 geolocation function.");
 		return;
@@ -143,6 +143,15 @@ var App = React.createClass({displayName: "App",
 				that.setState({
 					travelMode: travelMode,
 					start: origin,
+					end: destination
+				});
+				that.getRoutes();
+			}, function(error) {
+				console.log("error happened!");
+				mapApp.yourLocation = null;
+				that.setState({
+					travelMode: travelMode,
+					start: "Gatech, ATL",
 					end: destination
 				});
 				that.getRoutes();
