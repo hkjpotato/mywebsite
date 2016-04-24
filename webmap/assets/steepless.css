@@ -54,8 +54,8 @@ header h1{
 }
 
 #map-canvas{
-  	-webkit-flex: 2 0 26em;  /*Safari*/ 
-  	flex:  2 0 26em;
+  	-webkit-flex: 1 0 26em;  /*Safari*/ 
+  	flex:  1 0 26em;
 
 }
 
