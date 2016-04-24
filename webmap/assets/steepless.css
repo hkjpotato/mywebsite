@@ -41,8 +41,8 @@ a:hover{
 }
 
 header{
-  	-webkit-flex: 1 2 20px;  /*Safari*/ 
-  	flex:  1 2 20px;
+  	-webkit-flex: 1 2 10%;  /*Safari*/ 
+  	flex:  1 2 10%;
 	cursor: default;
 	/*padding-top: 40px;*/
 	/*padding-left: 20px;*/
@@ -62,15 +62,15 @@ header h1{
 }
 
 #map-canvas{
-  	-webkit-flex: 1 1 450px;  /*Safari*/ 
-  	flex:  1 1 450px;
+  	-webkit-flex: 1 1 60%;  /*Safari*/ 
+  	flex:  1 1 60%;
 
 }
 
 
 #directions-form {
-  	-webkit-flex: 1 1 50px; /* Safari */
-  	flex:  1 1 50px;
+  	-webkit-flex: 1 1 40%; /* Safari */
+  	flex:  1 1 40%;
 	padding: 15px;
 	word-spacing: 10px;
 
