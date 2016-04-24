@@ -113,13 +113,13 @@ var App = React.createClass({
 
 		var locations = hash.split('/');
 		console.log("hash received ", hash);
-		var travelMode = decodeURIComponent(locations[0]);
+		var travelMode = decodeURIComponent(locations[0]).toUpperCase();
 		// var travelMode = locations[0];
 
-		var origin = decodeURIComponent(locations[1]);
+		var origin = decodeURIComponent(locations[1]).toUpperCase();
 		// var origin = locations[1];
 
-		var destination = decodeURIComponent(locations[2]);
+		var destination = decodeURIComponent(locations[2]).toUpperCase();
 		
 
 		// check if use default destination
@@ -134,7 +134,7 @@ var App = React.createClass({
 		}
 
 		// check if use current position
-		if (origin == "your location") {
+		if (origin == "YOUR LOCATION") {
 			console.log("Use HTML5 to get the location of the users");
 			var that = this;
 			mapApp.getLocation(function(position) {
@@ -151,7 +151,7 @@ var App = React.createClass({
 				mapApp.yourLocation = null;
 				that.setState({
 					travelMode: travelMode,
-					start: "Gatech, ATL",
+					start: "GATECH, ATL",
 					end: destination
 				});
 				that.getRoutes();
@@ -295,8 +295,8 @@ var RouteForm = React.createClass({
 		var encodedStart = encodeURIComponent(start),
 			encodedEnd = encodeURIComponent(end);
 		console.log("encoded", encodedStart, encodedEnd);
-		location.hash = travelMode + '/' + start + '/' + end;
-		// location.hash = travelMode + '/' + encodedStart + '/' + encodedEnd;
+		// location.hash = travelMode + '/' + start + '/' + end;
+		location.hash = travelMode + '/' + encodedStart + '/' + encodedEnd;
 	},
 	handleSubmit: function(){
 		var travelMode = this.refs.travelMode.getDOMNode().value;
