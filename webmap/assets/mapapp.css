@@ -53,17 +53,41 @@ header{
 header .icon {
 	/*font-size: 5em;*/
 }
+
 header h1{
+	position: absolute;
 	font-size: 1.3em; 
 	font-weight: 400;
 	margin: 0;
 	padding: 0;
 }
 
+header input {
+	/*display: inline-block;*/
+	position: absolute;
+	border: 0;
+	padding: 7px 10px;
+	margin-top: 10px;
+	right: 10px;
+	background-color: #fff;
+	color: #2196f3;
+	font-weight: 500;
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 0.8em;
+
+	box-shadow: 0 2px 3px #aaa;
+	/*float: right;*/
+}
+
+header input:active{
+	opacity: .7;
+}
+
 #map-canvas{
   	-webkit-flex: 1 0 67%;  /*Safari*/ 
   	flex:  1 0 67%;
-
 }
 
 
@@ -179,7 +203,7 @@ header h1{
 	border-bottom-color: #2196f3;
 }
 
-#directions-form button:active{
+button:active{
 	opacity: .7;
 }
 

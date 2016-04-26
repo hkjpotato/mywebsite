@@ -85,7 +85,8 @@ var App = React.createClass({displayName: "App",
 			routes: null,
 			distanceUnit: localStorage['mapApp:distanceUnit'] || 'km',
 			yourLocation: localStorage['mapApp:yourLocation'] || 'null',
-			travelMode: 'walking'
+			travelMode: 'walking',
+			showAll: false,
 		};
 	},
 	componentDidMount: function(){
@@ -101,6 +102,15 @@ var App = React.createClass({displayName: "App",
 		console.log("From the app: the app componentDidUpdate called");
 		localStorage['mapApp:distanceUnit'] = this.state.distanceUnit;
 	},
+	toShowAll: function() {
+		if (this.state.showAll) {
+			Map.hidePinpointMarker();
+			this.setState({showAll: false});
+		} else {
+			Map.showPinpointMarker();
+			this.setState({showAll: true});
+		}
+	},
 	hashChange: function(){
 		console.log("-------hashChange function being called------");
 		var hash = location.hash.slice(1);
@@ -112,6 +122,9 @@ var App = React.createClass({displayName: "App",
 
 
 		var locations = hash.split('/');
+
+		// location.hash = travelMode + '/' + encodedStart + '/' + encodedEnd;
+
 		console.log("hash received ", hash);
 		var travelMode = decodeURIComponent(locations[0]);
 		// var travelMode = locations[0];
@@ -224,15 +237,25 @@ var App = React.createClass({displayName: "App",
 		var travelMode = this.state.travelMode;
 		return (
 			React.createElement("div", {id: "rootApp"}, 
-				React.createElement("header", null, 
-					React.createElement("h1", null, React.createElement(Icon, {type: "pedestrian", width: "36", height: "36"}), "Find My Way")
-				), 
+				React.createElement(MyHeader, {showAll: this.state.showAll, toShowAll: this.toShowAll}), 
 				React.createElement(Map, null), 
 				React.createElement(RouteForm, {start: this.state.start, end: this.state.end, units: units, travelMode: travelMode, onUnitChange: this.handleUnitChange, onTravelModeChange: this.handleTravelModeChange})
 			)
 		);
 	}
 });
+
+var MyHeader = React.createClass({displayName: "MyHeader",
+	render: function() {
+		return (
+			React.createElement("header", null, 
+				React.createElement("h1", null, React.createElement(Icon, {type: "pedestrian", width: "36", height: "36"}), "Find My Way"), 
+				React.createElement("input", {type: "button", onClick: this.props.toShowAll, ref: "button", value: this.props.showAll ? "Hide All Boards" : "Show All Boards"})
+			)
+		);
+	}
+});
+
 
 var Icon = React.createClass({displayName: "Icon",
 	render: function(){
@@ -248,31 +271,48 @@ var Map = React.createClass({displayName: "Map",
 	getDefaultProps: function(){
 		return {
 			map: {
-				center: new google.maps.LatLng(37.7577, -122.4376),
+				center: new google.maps.LatLng(33.775787, -84.396306),
 				zoom: 12,
 				disableDefaultUI: true
 			}
 		};
 	},
 	statics: {
-		pinpointMarker: new google.maps.Marker({
-			visible: false,
-			clickable: false,
-			zIndex: 1000
+		pinpointMarkers: Object.keys(mapApp.presetLocations).map(function(key) {
+				var place = mapApp.presetLocations[key];
+				var marker = new google.maps.Marker({
+					visible: false,
+					clickable: true,
+					zIndex: 1000
+				});
+				marker.setPosition(new google.maps.LatLng(place.lat, place.lng));
+				marker.addListener('click', function() {
+					console.log("marker being clicked");
+					var hash = location.hash.slice(1);
+					var locations = hash.split('/');
+					location.hash = locations[0] + '/' + locations[1] + '/' + key;
+  				});
+				return marker;
 		}),
-		showPinpointMarker: function(location){
-			this.pinpointMarker.setPosition(location);
-			this.pinpointMarker.setVisible(true);
+		showPinpointMarker: function(){
+			this.pinpointMarkers.forEach(function(marker) {
+				marker.setVisible(true);
+			});
 		},
 		hidePinpointMarker: function(){
-			this.pinpointMarker.setVisible(false);
+			this.pinpointMarkers.forEach(function(marker) {
+				marker.setVisible(false);
+			});
 		}
 	},
 	componentDidMount: function(){
 		console.log("map componentdidmount called")
 		var node = this.getDOMNode();
 		var map = new google.maps.Map(node, this.props.map);
-		Map.pinpointMarker.setMap(map);
+
+		Map.pinpointMarkers.forEach(function(marker) {
+			marker.setMap(map);
+		})
 
 		mapApp.directionsRenderer.setMap(map);
 	},
