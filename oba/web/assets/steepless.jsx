@@ -17,7 +17,8 @@ var mapApp = {
 	chartWidth: 400,
 	chartBarWidth: 2,
 	getLocation : getLocation,
-	yourLocation: null,
+	yourLocationStart: null,
+	yourLocationEnd: null,
 	presetEnd: null
 };
 //bicycling
@@ -59,14 +60,17 @@ var App = React.createClass({
 		// var origin = locations[1];
 
 		var destination = decodeURIComponent(locations[2]).toUpperCase();
-
+		console.log("testing");
 		// check if use current position
-		if (origin == "YOUR LOCATION") {
+		if (origin == "YOUR LOCATION" || destination == "YOUR LOCATION") {
 			console.log("Use HTML5 to get the location of the users");
 			var that = this;
 			mapApp.getLocation(function(position) {
-				console.log(position);
-				mapApp.yourLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				// console.log(position);
+				var googlePosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				mapApp.yourLocationStart = (origin == "YOUR LOCATION") ? googlePosition : null;
+				mapApp.yourLocationEnd = (destination == "YOUR LOCATION") ? googlePosition : null;
+				
 				that.setState({
 					travelMode: travelMode,
 					start: origin,
@@ -75,7 +79,8 @@ var App = React.createClass({
 				that.getRoutes();
 			}, function(error) {
 				console.log("error happened!");
-				mapApp.yourLocation = null;
+				mapApp.yourLocationStart = null;
+				mapApp.yourLocationEnd = null;
 				that.setState({
 					travelMode: travelMode,
 					start: "GATECH, ATL",
@@ -84,8 +89,11 @@ var App = React.createClass({
 				that.getRoutes();
 			});
 		} else {
+			console.log("normal case");
 			// clean the preset location
-			mapApp.yourLocation = null;
+			mapApp.yourLocationStart = null;
+			mapApp.yourLocationEnd = null;
+
 
 			this.setState({
 				travelMode: travelMode,
@@ -100,8 +108,8 @@ var App = React.createClass({
 		var state = this.state;
 
 		mapApp.directionsService.route({
-			origin: mapApp.yourLocation ? mapApp.yourLocation : state.start,
-			destination: state.end,
+			origin: mapApp.yourLocationStart ? mapApp.yourLocationStart : state.start,
+			destination: mapApp.yourLocationEnd ? mapApp.yourLocationEnd : state.end,
 			travelMode: google.maps.TravelMode[this.state.travelMode.toUpperCase()],
 			provideRouteAlternatives: true,
 			// unitSystem: google.maps.UnitSystem.METRIC
