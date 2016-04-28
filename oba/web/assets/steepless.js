@@ -6,7 +6,7 @@ var getLocation = function(success, error) {
 		return;
 	}
 }
-
+//summary
 var mapApp = {
 	directionsService: new google.maps.DirectionsService(),
 	directionsRenderer: new google.maps.DirectionsRenderer(),
@@ -108,18 +108,35 @@ var App = React.createClass({displayName: "App",
 		}, function(response, status){
 			if (status == google.maps.DirectionsStatus.OK) {
 				var routes = response.routes;
+				var updateRoutes;
 				console.log("===routes get====", routes);
 				if (self.state.travelMode == "transit") {
-					console.log(routes.shift());
+					// console.log(routes.shift());
+					routes.shift();
+
+					updateRoutes = routes.map(function(route, i){
+							var summary = route.legs[0].steps.reduce(function(prev, curr) {
+								return prev + curr.instructions;
+							}, "");
+							route.summary = summary;
+							return {
+								route: route,
+								selected: (i == 0)
+							};
+					});
+				} else {
+					updateRoutes = routes.map(function(route, i){
+							return {
+								route: route,
+								selected: (i == 0)
+							};
+					});
 				}
 
+
+
 				self.setState({
-					routes: routes.map(function(route, i){
-						return {
-							route: route,
-							selected: (i == 0)
-						};
-					})
+					routes: updateRoutes
 				});
 				mapApp.directionsRenderer.setDirections(response);
 			} else {
