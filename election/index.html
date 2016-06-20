@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #f5f5f5;
+  color: #4d4d4d;
+  font-weight: 300;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 300;
+  color: #bbb;
+  margin-top: -20px;
+  margin-bottom: -30px;
+}
+
+.counties {
+  cursor: pointer;
+  stroke: none;
+  fill: none;
+}
+
+.states {
+  fill: none;
+  stroke: #fff;
+  /*stroke: red;*/
+  stroke-linejoin: round;
+}
+
+.q0-9 { fill:#e3e0e0; }
+.q1-9 { fill:#f99e97; }
+.q2-9 { fill:#f67167; }
+.q3-9 { fill:#f45a4f; }
+.q4-9 { fill:#f22d1f; }
+.q5-9 { fill:#e91d0e; }
+.q6-9 { fill:#d11a0d; }
+.q7-9 { fill:#b9170c; }
+.q8-9 { fill:#a1140a; }
+.q9-9 { fill:#710e07; }
+
+
+#mainInfo {
+  margin: 40px auto;
+  width: 980px;
+  height: 500px;
+  /*border: 1px solid lightgrey;*/
+}
+
+#map {
+  position: absolute;
+  width: 650px;
+  height: 500px;
+  border: 1px dotted lightgrey;
+}
+
+#countyInfo {
+  position: absolute;
+  width: 320px;
+  height: 500px;
+  border: 1px dotted lightgrey;
+  margin-left: 660px;
+}
+
+#countyInfo > #detail {
+  padding: 10px;
+  font-size: 20px;
+  line-height: 180%;
+  display: none;
+}
+
+.county-value {
+  color: #b9170c;
+  font-weight: 400;
+}
+
+#hint {
+  font-size: 30px;
+  margin-top: 200px;
+  text-align: center;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+
+table {
+  width: 100%;
+  border: 1px red;
+}
+table td:nth-child(2) {
+  width: 70%;
+}
+table td:nth-child(2) {
+  width: 30%;
+}
+
+#radiobtns {
+  position: absolute;
+  right: 10px;
+  font-size: 80%;
+  font-weight: 500;
+}
+
+input[type=radio] {
+    display:none; 
+}
+input[type=radio] + label {
+    display:inline-block;
+    margin:10px 5px;
+    color: #bbb;
+}
+
+input[type=radio]:checked + label { 
+     text-decoration: underline;
+     color: #b9170c;
+}
+
+input[type=radio] + label {
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+.legend {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
+
+</style>
+
+
+
+<body>
+  <header>
+    <h1>Who is behind Trump?</h1>
+    <h3>The 2016 Republican Party Presidential primaries results by county</h3>
+
+  </header>
+
+  <div id="mainInfo">
+    <div id="map">
+      <form id="radiobtns">
+        <input type="radio" name="candidate" value="trump" id="radio1" checked><label for="radio1">Donald Trump</label>
+        <input type="radio" name="candidate" value="rubio" id="radio2"><label for="radio2">Marco Rubio</label>
+        <input type="radio" name="candidate" value="cruz" id="radio3"><label for="radio3">Ted Cruz</label>
+      </form>
+    </div>
+    <div id="countyInfo">
+      <div id="hint">Select a county</div>
+      <div id="detail">
+        <span id="countyName" class="county-value"></span><br>
+        <table>
+          <tr>
+            <td>votes(pecent):</td>
+            <td>
+              <span id="vote" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>population(2014):</td>
+            <td>
+              <span id="population" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>hispanic:</td>
+            <td>
+              <span id="hispanic" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>white(non-hispanic):</td>
+            <td>
+              <span id="whitenonhispanic" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>black:</td>
+            <td>
+              <span id="black" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>asian:</td>
+            <td>
+              <span id="asian" class="county-value"></span>
+            </td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td>education:</td>
+            <td>
+              <span id="education" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>nonemployer:</td>
+            <td>
+              <span id="nonemployer" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>belowpoverty:</td>
+            <td>
+              <span id="belowpoverty" class="county-value"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>density:</td>
+            <td>
+              <span id="populationdensity" class="county-value"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>capital income:</td>
+            <td>
+              <span id="percapincome" class="county-value"></span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+  var freeze = false;
+  var currentSelectedCounty;
+  var currentSelectedCountyFill;
+  var candidate="trump";
+  //load county infomation
+  var countyObject;
+  function loadCountyInfo() {
+    countyObject = {};
+    d3.csv("data/county_info.csv", function(data) {
+      data.forEach(function(item) {
+        countyObject[item.fips] = item;
+      });
+      // console.log("test",countyObject);
+    });   
+  }
+  loadCountyInfo();
+
+  //load candidate infomation
+  var candidateObject;
+  function loadCandidateInfo() {
+    candidateObject = {};
+    d3.csv("data/vote_statics.csv", function(data) {
+      data.forEach(function(item) {
+        candidateObject[item.fips] = item;
+      });
+    });
+  }
+  loadCandidateInfo();
+
+</script>
+<script>
+
+  //color scale
+  var rateById = d3.map();
+  var quantize = d3.scale.quantize()
+      .domain([0, 1])
+      .range(d3.range(10).map(function(i) { return "q" + i + "-9"; }));
+
+
+  testRange = d3.range(10).map(function(i) { return "q" + i + "-9"; });
+
+  console.log(testRange);
+  console.log(quantize.domain());
+  // console.log(testRange(0.21));
+  // console.log(testRange(0.25));
+
+
+
+
+
+  console.log();
+  //for the map
+  var width = 650,
+    height = 500;
+
+  var path = d3.geo.path()
+    .projection(null);
+
+  var svg = d3.select("#map").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .on("click", function() {
+        // if (!freeze) {
+        //   d3.event.stopPropagation();
+        // }
+        console.log("usa clicked",new Date().getMilliseconds());
+    }, false);
+
+  var legendSize = 20;
+  var legend = svg.selectAll('.legend')
+    .data(d3.range(0, 1, 0.1))
+    .enter()
+    .append('g')
+    .attr('class', quantize)
+    .attr('transform', function(d, i) {
+      console.log(d);
+      var horz = width - 230 + i * legendSize;
+      var vert = height - 30;
+      return 'translate(' + horz + ',' + vert + ')';
+    });
+
+    legend.append('rect')
+      .attr('width', legendSize)
+      .attr('height', legendSize * 0.3)
+      .style('stroke', "none");
+
+    legend.append('text')
+      .attr('x', function(d, i) {
+        if (i == 9) {
+          return legendSize * 0.6;
+        } else {
+          return - legendSize * 0.4;
+        }
+      })
+      .attr('y', + legendSize * 0.8 )
+      .attr('font-size', ".6em" )
+      .text(function(d, i) { 
+        if (i % 5 == 0) {
+          return (+d * 100) + "%"; 
+        } else if (i == 9) {
+          return "100%";
+        }
+
+      });
+  //geojson data
+  var geoData;
+
+
+  //radio button
+  $('#radiobtns input').on('change', function() {
+    console.log($('input[name="candidate"]:checked', "#radiobtns").val());
+
+    candidate = $('input[name="candidate"]:checked', "#radiobtns").val();
+    svg.selectAll(".counties").remove();
+
+
+    loadCountySvg(svg, geoData);
+  });
+
+
+
+  d3.json("us.json", function(error, us) {
+    if (error) return console.error(error);
+    
+
+    //state
+    svg.append("path")
+        .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+        .attr("class", "states")
+        .attr("d", path);
+
+    geoData = us;
+    //load ratio data for county
+    loadCountySvg(svg, geoData);
+  //end of loading data
+  });
+  
+
+  function loadCountySvg(svg, geoData) {
+    //county
+    svg.append("g")
+        .attr("class", "counties")
+      .selectAll("path")
+        .data(topojson.feature(geoData, geoData.objects.counties).features)
+      .enter().append("path")
+        .attr("class", function(d) {
+          var ratio = 0;
+          if (candidateObject[+d.id] && candidateObject[+d.id][candidate] != "undefined") {
+            ratio = candidateObject[+d.id][candidate];
+          }
+          return quantize(ratio); 
+        })
+        .attr("d", path)
+        .on("mouseover", function(d) {
+          if (!freeze) {
+            //hover
+            d3.select(this).style({
+              "opacity": 0.3,
+              "stroke": "#000"
+            });
+            //showInfo
+            showInfo(d);
+          }
+        })
+        .on("mouseout", function() {
+          if (!freeze) {
+            // hover
+            d3.select(this).style({
+              "opacity": 1,
+              "stroke": "none"
+            });
+            //hide countyInfo
+            hideInfo();
+          }
+        })
+        .on("click", function() {
+          freeze = !freeze;
+          svg.style("opacity", freeze ? 0.5 : 1);
+          //update selected county if new one is selected
+          if (currentSelectedCounty != null) {
+            //make the previous normal
+            currentSelectedCounty.style({
+              "opacity": 1,
+              "stroke": "none",
+              "fill": currentSelectedCountyFill
+            });
+          }
+          // //refer to current one and update the style
+          currentSelectedCounty = d3.select(this);
+          currentSelectedCountyFill = currentSelectedCounty.style("fill");
+          currentSelectedCounty.style({
+            "stroke": "#000",
+            "opacity": 0.3,
+          });
+          if (freeze) {
+            currentSelectedCounty.style({
+              "stroke": "#0A97A1",
+              "opacity": 1,
+              "fill": "#0A97A1"
+            });   
+          }
+          console.log("county clicked", new Date().getMilliseconds());
+        });
+  }
+
+
+
+
+  function showInfo(d) {
+    //update
+    $('#countyName').html(d.properties.name);
+    var ratio = 0;
+    if (candidateObject[+d.id] && candidateObject[+d.id][candidate] != "undefined") {
+      ratio = +candidateObject[+d.id][candidate];
+    }
+    $('#vote').html((ratio * 100).toFixed(1) + "%");
+    if (countyObject) {
+      console.log(countyObject[+d.id]);
+      var myInfo = countyObject[+d.id];
+      $('#population').html(myInfo["Population2014e"]);
+      $('#whitenonhispanic').html(myInfo["white_not_hispanic"] + "%");
+      $('#asian').html(myInfo["asian"] + "%");
+      $('#black').html(myInfo["black"] + "%");
+      $('#female').html(myInfo["female" + "%"]);
+      $('#hispanic').html(myInfo["hispanic"] + "%");
+      $('#education').html(myInfo["bachelor25"] + "%");
+      $('#nonemployer').html(myInfo["Nonemployer"]);
+      $('#belowpoverty').html(myInfo["belowpoverty"]);
+      $('#populationdensity').html(myInfo["Populationdensity"]);
+      $('#percapincome').html(myInfo["PerCapIncome12"]);
+    }
+    //show
+    $("#detail").show();
+    $("#hint").hide();
+  }
+
+  function hideInfo() {
+    $("#detail").hide();
+    $("#hint").show();
+  }
+
+
+
+
+
+</script>
