@@ -1,599 +1,562 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE>
+<html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="kj's personal website">
+<meta name="author" content="kj_huang">
 
+<title>Kaijie Huang's Personal Website</title>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="kj's personal website about his angular and react project">
-    <meta name="author" content="kj_huang">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
 
-    <title>Kaijie Huang's Personal Website</title>
+  .node {
+    cursor: pointer;
+    stroke: #c0c0c0;
+    stroke-width: 1.5px;
+  }
 
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> scroll-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  .link {
+    fill: none;
+    stroke: #dfdfdf;
+    stroke-width: 2px;
+  }
 
-    <!-- Custom CSS -->
-    <link href="css/freelancer.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- use of google fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-
-    <style type="text/css">
-
-        #downArrowSection {
-          opacity: 0;
-          -webkit-transition: opacity 1s linear 4s;
-          -moz-transition: opacity 1s linear 4s;
-          transition: opacity 1s linear 4s;
-        }
-
-        #nav_icon {
-          height: 30px;
-          margin-top: 10px;
-          margin-right: 15px;
-
-        }
-
-         #myIcon_frame.draw #frame {
-          -webkit-animation: DRAWFRAME 3s forwards 1.5s;
-          /* Safari 4+ */
-          -moz-animation: DRAWFRAME 3s forwards 1.5s;
-          /* Fx 5+ */
-          -o-animation: DRAWFRAME 3s forwards 1.5s;
-          /* Opera 12+ */
-          animation: DRAWFRAME 3s forwards 1.5s;
-        }
-
-
-        #myIcon_frame.draw #myIcon{
-          -webkit-animation: DRAWICON 3.4s forwards 2.5s;
-          /* Safari 4+ */
-          -moz-animation: DRAWICON 3.4s forwards 2.5s;
-          /* Fx 5+ */
-          -o-animation: DRAWICON 3.4s forwards 2.5s;
-          /* Opera 12+ */
-          animation: DRAWICON 3.4s forwards 2.5s;
-        }
-
-
-        @-webkit-keyframes DRAWICON {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        @-moz-keyframes DRAWICON {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        @-o-keyframes DRAWICON {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        @keyframes DRAWICON {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        /*frame drawing*/
-        @-webkit-keyframes DRAWFRAME {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        @-moz-keyframes DRAWFRAME {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        @-o-keyframes DRAWFRAME {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        @keyframes DRAWFRAME {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-
-        #myIcon, #frame {
-          -webkit-transition: all 2.5s linear .3s;
-          -moz-transition: all 2.5s linear .3s;
-          transition: all 2.5s linear .3s;
-        }
-
-        #myIcon_frame {
-          -webkit-transition: all 1.5s ease 0.3s;
-          -moz-transition: all 1.5s ease 0.3s;
-          transition: all 1.5s ease 0.3s;
-        }
-      </style>
-      <style type="text/css">
-        #headShot {
-            border-radius: 80%;
-            width:80%;
-            margin: 6% auto 6%;
-            max-width:300px;
-            opacity: 0.8;
-        }
-
-        .portfolio-link {
-            -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-            -moz-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-            box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
-        }
-    </style>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <script type="text/javascript">
-    function get_browser(){
-        var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
-        if(/trident/i.test(M[1])){
-            tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
-            return {name:'IE',version:(tem[1]||'')};
-            }   
-        if(M[1]==='Chrome'){
-            tem=ua.match(/\bOPR\/(\d+)/)
-            if(tem!=null)   {return {name:'Opera', version:tem[1]};}
-            }   
-        M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-        if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
-        return {
-          name: M[0],
-          version: M[1]
-        };
-     }
-
-     function checkBrowser() {
-       var browser = get_browser();
-       console.log(browser);
-       if (browser.name !== "Safari" || parseInt(browser.version) > 9) {
-        console.log("good version");
-        $('#myIcon_frame').css({"border":"8px solid white"})
-       } else {
-        console.log("not support browser");
-       }
-     }
-    </script>
-
+  </style>
+  <link rel="stylesheet" href="./css/kjstyle.css">
+  <link rel="stylesheet" href="./css/icon.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 </head>
+<body>
+<div id="mainContent">
+  <div id="animationContainer">
+    <div id="iconGroup">
+      <div id="myIconContainer">
+        <svg id="myIcon_frame" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+                    <g id="frame" inkscape:version="0.48.2 r9819" sodipodi:docname="AppIconTemplate.svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#">
+                      <defs>
+                        
+                        
+                          <inkscape:perspective  inkscape:persp3d-origin="512 : 341.33333 : 1" inkscape:vp_x="0 : 512 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="1024 : 512 : 1" sodipodi:type="inkscape:persp3d" id="perspective4094">
+                          </inkscape:perspective>
+                      </defs>
+                      
+                        <sodipodi:namedview  inkscape:window-width="1920" inkscape:pageshadow="2" fit-margin-right="0" inkscape:window-x="36" inkscape:document-units="px" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:guide-bbox="true" inkscape:window-height="1036" inkscape:current-layer="layer2" fit-margin-bottom="0" inkscape:pageopacity="0.0" inkscape:showpageshadow="false" inkscape:cx="1052.2646" inkscape:cy="508.89593" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:zoom="0.64" borderlayer="true" showborder="false" showgrid="false" showguides="true" fit-margin-left="0" fit-margin-top="0" id="base">
+                        <sodipodi:guide  orientation="0,1" position="-10.429825,956.71547" id="guide3101"></sodipodi:guide>
+                        <sodipodi:guide  orientation="1,0" position="956.5625,59.8125" id="guide3103"></sodipodi:guide>
+                        <sodipodi:guide  orientation="0,1" position="1246.875,315.625" id="guide3105"></sodipodi:guide>
+                        <sodipodi:guide  orientation="1,0" position="67.351921,64.523494" id="guide3107"></sodipodi:guide>
+                        <sodipodi:guide  orientation="0,1" position="961.5,67.5" id="guide3109"></sodipodi:guide>
+                        <sodipodi:guide  orientation="1,0" position="319.08193,67.707547" id="guide3111"></sodipodi:guide>
+                        <sodipodi:guide  orientation="1,0" position="511.68014,67.707547" id="guide3113"></sodipodi:guide>
+                        <sodipodi:guide  orientation="1,0" position="706.1875,64.734375" id="guide3115"></sodipodi:guide>
+                        <sodipodi:guide  orientation="0,1" position="-21.213203,1024" id="guide3117"></sodipodi:guide>
+                        <sodipodi:guide  orientation="0,1" position="0,0" id="guide3119"></sodipodi:guide>
+                        <sodipodi:guide  orientation="1,0" position="0,1042.6289" id="guide3121"></sodipodi:guide>
+                        <sodipodi:guide  orientation="0,1" position="-6.8942911,705" id="guide3123"></sodipodi:guide>
+                        <sodipodi:guide  orientation="1,0" position="1024,1037.75" id="guide3125"></sodipodi:guide>
+                        <sodipodi:guide  orientation="0,1" position="-27.223611,512.65241" id="guide3127"></sodipodi:guide>
+                        <inkscape:grid  type="xygrid" snapvisiblegridlinesonly="true" enabled="true" visible="true" empspacing="5" id="grid4235">
+                          </inkscape:grid>
+                        <sodipodi:guide  orientation="1,0" position="511.68014,430.8932" id="guide4003"></sodipodi:guide>
+                      </sodipodi:namedview>
+                      
+                        <g id="layer1" transform="translate(50.25,211.52169)" sodipodi:insensitive="true" inkscape:groupmode="layer" inkscape:label="BORDER">
+                        <path id="path5" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;" d="M302-211.5h319.6
+                          c101.4,0,152.1,0,206.7,17.3c59.6,21.7,106.5,68.6,128.2,128.2c17.3,54.6,17.3,105.3,17.3,206.7v319.6c0,101.4,0,152.1-17.3,206.7
+                          c-21.7,59.6-68.6,106.5-128.2,128.2c-54.6,17.3-105.3,17.3-206.7,17.3H302c-101.4,0-152.1,0-206.7-17.3
+                          C35.6,773.5-11.3,726.6-33,667c-17.3-54.6-17.3-105.3-17.3-206.7V140.7c0-101.4,0-152.1,17.3-206.7
+                          c21.7-59.6,68.6-106.5,128.2-128.2C149.8-211.5,200.5-211.5,302-211.5L302-211.5"/>
+                      </g>
+                      <g id="layer6" inkscape:groupmode="layer" inkscape:label="MASK">
+                        <path id="path4146" sodipodi:nodetypes="csssssssssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="M0,708.4
+                          c0.1,38.8,0.6,71,3.5,100.2c0.9,8.9,2,17.5,3.4,25.9c2.7,17.1,6.3,30.6,10.6,44.6c1,3.1,2.3,6,3.5,8.9c5,11.9,10.4,22.6,16.8,32.2
+                          c7.5,11.4,16.6,23.4,26.7,33.8c11.3,11.6,22.2,20.6,34.2,28.8c7.8,5.3,15.2,9.8,23.7,13.9c3.3,1.6,6.8,3.3,10.5,4.9
+                          c6,2.6,12.6,5.2,20.4,7.4c16.3,4.6,37.8,9.5,66.7,11.8c26,2.1,58.1,3.2,99.2,3.2H0L0,708.4z"/>
+                        <path id="path4146-5" sodipodi:nodetypes="cssssssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="M1024,708.4
+                          c0,33.5-0.4,57.5-2.2,86.1c-2.1,33.6-7.7,62-16.1,85.8c-5.2,14.5-11.4,27.3-18.6,38.6c-10.4,16.2-22.7,31.2-36.9,44.5
+                          c-6.9,6.4-14,11.8-21.9,17.5c-10.4,7.4-20.2,13.1-32.2,18.6c-10.7,5-23.2,9.5-39.9,13.5c-11.6,2.7-25.2,5.3-41.7,7.1
+                          c-27.2,2.9-62.2,3.4-108.3,4H1024V708.4z"/>
+                        <path id="path4146-5-3" sodipodi:nodetypes="cssssssssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="
+                          M1024,318.3c0.2-39.1-0.3-73.6-3.5-103.9c-1.4-13.5-3.9-26.3-6-38.2c-3.6-20.5-10.1-38.4-17.3-52.7c-2.1-4.2-3.9-7.6-5.8-10.8
+                          c-1.5-2.6-3.1-5.2-4.9-8.1c-2-3.1-3.9-6.2-6-9.2c-5.7-8-12.2-15.9-18.9-23.2c-10.1-10.8-21.3-21-33.9-29.4
+                          c-18-12-33.3-21.3-61.7-29.1c-12.9-3.5-28.7-6.9-48.7-9.2C790.1,1.2,754.7,0.1,706.2,0H1024L1024,318.3z"/>
+                        <path id="path4146-5-3-7" sodipodi:nodetypes="csssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="M0,318.5
+                          c0-54.3,2-103.1,8.8-140c6-32.2,15.8-54.5,29.1-75.1C53.3,79.4,73,58.2,97.3,42c14.6-9.7,27.2-16.7,46.1-24
+                          c9.9-3.8,21.4-6.6,34.7-9.2c30.2-5.9,72.6-9.2,141-8.9H0V318.5z"/>
+                      </g>
+                      <g id="layer2" transform="translate(0,-2.2054443)" inkscape:groupmode="layer" inkscape:label="GUIDES">
+                        <path id="path4024" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,321v386.3"/>
+                        
+                          <path id="path3129" sodipodi:cy="298.86218" sodipodi:cx="462.32144" sodipodi:rx="138" sodipodi:ry="138" sodipodi:type="arc" style="fill:none;stroke:#000000;stroke-width:1.0057;" d="
+                          M786,513.7c0,151.6-122.9,274.4-274.5,274.4S237.1,665.2,237.1,513.7S360,239.3,511.6,239.3S786,362.1,786,513.7z"/>
+                        
+                          <path id="path3129-9" sodipodi:cy="298.86218" sodipodi:cx="462.32144" sodipodi:rx="138" sodipodi:ry="138" sodipodi:type="arc" style="fill:none;stroke:#000000;stroke-width:0.6209;" d="
+                          M956.6,514.1c0,245.5-199,444.5-444.6,444.5S67.4,759.6,67.4,514.1S266.5,69.6,512,69.6S956.6,268.6,956.6,514.1z"/>
+                        
+                          <path id="path4011" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M67.4,69.5l889.2,889.2"/>
+                        <path id="path4028" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,707.3h1022"/>
+                        <path id="path4030" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,513.7h1022"/>
+                        <path id="path4032" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,321h1022"/>
+                        
+                          <path id="path4034" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M319.1,1026.2V2.2"/>
+                        
+                          <path id="path4036" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M511.7,2.2v1024"/>
+                        
+                          <path id="path4038" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M706.2,1026.2V2.2"/>
+                        
+                          <path id="path4001" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M67.4,958.7L956.6,69.5"/>
+                        
+                          <path id="path4003" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M956.6,69.5v889.2"/>
+                        
+                          <path id="path4009" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M67.4,69.5h889.2"/>
+                        
+                          <path id="path4007" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M67.4,958.7V69.5"/>
+                        
+                          <path id="path4005" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
+                          M956.6,958.7H67.4"/>
+                        
+                          <path id="path3129-7" sodipodi:cy="298.86218" sodipodi:cx="462.32144" sodipodi:rx="138" sodipodi:ry="138" sodipodi:type="arc" style="fill:none;stroke:#000000;stroke-width:1.4291;" d="
+                          M706.2,513.9c0,106.4-86.7,192.7-193.6,192.7s-193.6-86.3-193.6-192.7s86.7-192.7,193.6-192.7S706.2,407.5,706.2,513.9z"/>
+                      </g>
+                    </g>
+                    <g id="myIcon">
+                      <line x1="511.6" y1="866.2" x2="511.6" y2="866.2"/>
+                      <path d="M786,511.5l-274.5,0.8l194.6-194.6l250.4,0.6v193.7
+                        c0,444.6-444.6,444.5-444.6,444.5V785.9C784.4,784.3,786,511.5,786,511.5z"/>
+                      <path  d="M512,67.4"/>
+                      <polygon points="432.7,705.4 237.1,512.1 237.1,511.1 237.1,512.1 237.1,704.4 
+                        67.4,704.4 67.4,67.3 237.1,67.4 237.1,237.1 407.3,67 582.2,67.5 472.1,177.6 276.6,371.1 472.1,564.6 611.9,704.4   "/>
+                    </g>
+                    </svg>
+      </div>
+      <div id="iconDescription">
+        <p>Simplicity is hidden Complexity</p>
+      </div>
 
-<body id="page-top" class="index" onload="checkBrowser()">
+    </div>
+    <!-- endOfIcon -->
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <div id="my-intro">
+      <p style="font-size: 180%"><i>"Hi, I am Kaijie(KJ) Huang, a Frontend/Visualization developer passionate about web user experience!"</i>
+      </p>
+    </div>
+    <button id="exploreButton" class="btn btn-md btn-outline" onClick="explore()">
+        Explore
+    </button>
+  </div>
 
 
-                <a class="pull-left" href="#page-top">
-                  <img id="nav_icon" alt="Brand" src="./img/nav_icon.png">
+  <div id='vis'></div>
+</div>
+
+<!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-1">
+                <a data-toggle="modal" data-target="#AboutMe" class="special btn btn-lg btn-outline">
+                    ?
                 </a>
-                <a class="navbar-brand" href="#page-top">
-                  KJ Huang
+                <a target="_blank" href="resume.pdf" class="btn btn-lg btn-outline">
+                    <i class="fa fa-download"></i> Download Resume
                 </a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
+            <div class="col-sm-5">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://github.com/hkjpotato" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
+                    <li>
+                        <a href="http://codepen.io/hkjpotato/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-codepen"></i></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
+                    <li>
+                        <a href="https://www.linkedin.com/in/kjhuang" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
                     </li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="iconGroup">
-                      <div id="myIconContainer">
-                        <svg id="myIcon_frame" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                           viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
-                        <g id="frame" inkscape:version="0.48.2 r9819" sodipodi:docname="AppIconTemplate.svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#">
-                          <defs>
-                            
-                            
-                              <inkscape:perspective  inkscape:persp3d-origin="512 : 341.33333 : 1" inkscape:vp_x="0 : 512 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="1024 : 512 : 1" sodipodi:type="inkscape:persp3d" id="perspective4094">
-                              </inkscape:perspective>
-                          </defs>
-                          
-                            <sodipodi:namedview  inkscape:window-width="1920" inkscape:pageshadow="2" fit-margin-right="0" inkscape:window-x="36" inkscape:document-units="px" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:guide-bbox="true" inkscape:window-height="1036" inkscape:current-layer="layer2" fit-margin-bottom="0" inkscape:pageopacity="0.0" inkscape:showpageshadow="false" inkscape:cx="1052.2646" inkscape:cy="508.89593" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:zoom="0.64" borderlayer="true" showborder="false" showgrid="false" showguides="true" fit-margin-left="0" fit-margin-top="0" id="base">
-                            <sodipodi:guide  orientation="0,1" position="-10.429825,956.71547" id="guide3101"></sodipodi:guide>
-                            <sodipodi:guide  orientation="1,0" position="956.5625,59.8125" id="guide3103"></sodipodi:guide>
-                            <sodipodi:guide  orientation="0,1" position="1246.875,315.625" id="guide3105"></sodipodi:guide>
-                            <sodipodi:guide  orientation="1,0" position="67.351921,64.523494" id="guide3107"></sodipodi:guide>
-                            <sodipodi:guide  orientation="0,1" position="961.5,67.5" id="guide3109"></sodipodi:guide>
-                            <sodipodi:guide  orientation="1,0" position="319.08193,67.707547" id="guide3111"></sodipodi:guide>
-                            <sodipodi:guide  orientation="1,0" position="511.68014,67.707547" id="guide3113"></sodipodi:guide>
-                            <sodipodi:guide  orientation="1,0" position="706.1875,64.734375" id="guide3115"></sodipodi:guide>
-                            <sodipodi:guide  orientation="0,1" position="-21.213203,1024" id="guide3117"></sodipodi:guide>
-                            <sodipodi:guide  orientation="0,1" position="0,0" id="guide3119"></sodipodi:guide>
-                            <sodipodi:guide  orientation="1,0" position="0,1042.6289" id="guide3121"></sodipodi:guide>
-                            <sodipodi:guide  orientation="0,1" position="-6.8942911,705" id="guide3123"></sodipodi:guide>
-                            <sodipodi:guide  orientation="1,0" position="1024,1037.75" id="guide3125"></sodipodi:guide>
-                            <sodipodi:guide  orientation="0,1" position="-27.223611,512.65241" id="guide3127"></sodipodi:guide>
-                            <inkscape:grid  type="xygrid" snapvisiblegridlinesonly="true" enabled="true" visible="true" empspacing="5" id="grid4235">
-                              </inkscape:grid>
-                            <sodipodi:guide  orientation="1,0" position="511.68014,430.8932" id="guide4003"></sodipodi:guide>
-                          </sodipodi:namedview>
-                          
-                            <g id="layer1" transform="translate(50.25,211.52169)" sodipodi:insensitive="true" inkscape:groupmode="layer" inkscape:label="BORDER">
-                            <path id="path5" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;" d="M302-211.5h319.6
-                              c101.4,0,152.1,0,206.7,17.3c59.6,21.7,106.5,68.6,128.2,128.2c17.3,54.6,17.3,105.3,17.3,206.7v319.6c0,101.4,0,152.1-17.3,206.7
-                              c-21.7,59.6-68.6,106.5-128.2,128.2c-54.6,17.3-105.3,17.3-206.7,17.3H302c-101.4,0-152.1,0-206.7-17.3
-                              C35.6,773.5-11.3,726.6-33,667c-17.3-54.6-17.3-105.3-17.3-206.7V140.7c0-101.4,0-152.1,17.3-206.7
-                              c21.7-59.6,68.6-106.5,128.2-128.2C149.8-211.5,200.5-211.5,302-211.5L302-211.5"/>
-                          </g>
-                          <g id="layer6" inkscape:groupmode="layer" inkscape:label="MASK">
-                            <path id="path4146" sodipodi:nodetypes="csssssssssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="M0,708.4
-                              c0.1,38.8,0.6,71,3.5,100.2c0.9,8.9,2,17.5,3.4,25.9c2.7,17.1,6.3,30.6,10.6,44.6c1,3.1,2.3,6,3.5,8.9c5,11.9,10.4,22.6,16.8,32.2
-                              c7.5,11.4,16.6,23.4,26.7,33.8c11.3,11.6,22.2,20.6,34.2,28.8c7.8,5.3,15.2,9.8,23.7,13.9c3.3,1.6,6.8,3.3,10.5,4.9
-                              c6,2.6,12.6,5.2,20.4,7.4c16.3,4.6,37.8,9.5,66.7,11.8c26,2.1,58.1,3.2,99.2,3.2H0L0,708.4z"/>
-                            <path id="path4146-5" sodipodi:nodetypes="cssssssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="M1024,708.4
-                              c0,33.5-0.4,57.5-2.2,86.1c-2.1,33.6-7.7,62-16.1,85.8c-5.2,14.5-11.4,27.3-18.6,38.6c-10.4,16.2-22.7,31.2-36.9,44.5
-                              c-6.9,6.4-14,11.8-21.9,17.5c-10.4,7.4-20.2,13.1-32.2,18.6c-10.7,5-23.2,9.5-39.9,13.5c-11.6,2.7-25.2,5.3-41.7,7.1
-                              c-27.2,2.9-62.2,3.4-108.3,4H1024V708.4z"/>
-                            <path id="path4146-5-3" sodipodi:nodetypes="cssssssssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="
-                              M1024,318.3c0.2-39.1-0.3-73.6-3.5-103.9c-1.4-13.5-3.9-26.3-6-38.2c-3.6-20.5-10.1-38.4-17.3-52.7c-2.1-4.2-3.9-7.6-5.8-10.8
-                              c-1.5-2.6-3.1-5.2-4.9-8.1c-2-3.1-3.9-6.2-6-9.2c-5.7-8-12.2-15.9-18.9-23.2c-10.1-10.8-21.3-21-33.9-29.4
-                              c-18-12-33.3-21.3-61.7-29.1c-12.9-3.5-28.7-6.9-48.7-9.2C790.1,1.2,754.7,0.1,706.2,0H1024L1024,318.3z"/>
-                            <path id="path4146-5-3-7" sodipodi:nodetypes="csssssccc" inkscape:connector-curvature="0" style="fill:#FFFFFF;" d="M0,318.5
-                              c0-54.3,2-103.1,8.8-140c6-32.2,15.8-54.5,29.1-75.1C53.3,79.4,73,58.2,97.3,42c14.6-9.7,27.2-16.7,46.1-24
-                              c9.9-3.8,21.4-6.6,34.7-9.2c30.2-5.9,72.6-9.2,141-8.9H0V318.5z"/>
-                          </g>
-                          <g id="layer2" transform="translate(0,-2.2054443)" inkscape:groupmode="layer" inkscape:label="GUIDES">
-                            <path id="path4024" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,321v386.3"/>
-                            
-                              <path id="path3129" sodipodi:cy="298.86218" sodipodi:cx="462.32144" sodipodi:rx="138" sodipodi:ry="138" sodipodi:type="arc" style="fill:none;stroke:#000000;stroke-width:1.0057;" d="
-                              M786,513.7c0,151.6-122.9,274.4-274.5,274.4S237.1,665.2,237.1,513.7S360,239.3,511.6,239.3S786,362.1,786,513.7z"/>
-                            
-                              <path id="path3129-9" sodipodi:cy="298.86218" sodipodi:cx="462.32144" sodipodi:rx="138" sodipodi:ry="138" sodipodi:type="arc" style="fill:none;stroke:#000000;stroke-width:0.6209;" d="
-                              M956.6,514.1c0,245.5-199,444.5-444.6,444.5S67.4,759.6,67.4,514.1S266.5,69.6,512,69.6S956.6,268.6,956.6,514.1z"/>
-                            
-                              <path id="path4011" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M67.4,69.5l889.2,889.2"/>
-                            <path id="path4028" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,707.3h1022"/>
-                            <path id="path4030" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,513.7h1022"/>
-                            <path id="path4032" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="M1,321h1022"/>
-                            
-                              <path id="path4034" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M319.1,1026.2V2.2"/>
-                            
-                              <path id="path4036" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M511.7,2.2v1024"/>
-                            
-                              <path id="path4038" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M706.2,1026.2V2.2"/>
-                            
-                              <path id="path4001" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M67.4,958.7L956.6,69.5"/>
-                            
-                              <path id="path4003" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M956.6,69.5v889.2"/>
-                            
-                              <path id="path4009" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M67.4,69.5h889.2"/>
-                            
-                              <path id="path4007" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M67.4,958.7V69.5"/>
-                            
-                              <path id="path4005" sodipodi:nodetypes="cc" inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:2;" d="
-                              M956.6,958.7H67.4"/>
-                            
-                              <path id="path3129-7" sodipodi:cy="298.86218" sodipodi:cx="462.32144" sodipodi:rx="138" sodipodi:ry="138" sodipodi:type="arc" style="fill:none;stroke:#000000;stroke-width:1.4291;" d="
-                              M706.2,513.9c0,106.4-86.7,192.7-193.6,192.7s-193.6-86.3-193.6-192.7s86.7-192.7,193.6-192.7S706.2,407.5,706.2,513.9z"/>
-                          </g>
-                        </g>
-                        <g id="myIcon">
-                          <line x1="511.6" y1="866.2" x2="511.6" y2="866.2"/>
-                          <path d="M786,511.5l-274.5,0.8l194.6-194.6l250.4,0.6v193.7
-                            c0,444.6-444.6,444.5-444.6,444.5V785.9C784.4,784.3,786,511.5,786,511.5z"/>
-                          <path  d="M512,67.4"/>
-                          <polygon points="432.7,705.4 237.1,512.1 237.1,511.1 237.1,512.1 237.1,704.4 
-                            67.4,704.4 67.4,67.3 237.1,67.4 237.1,237.1 407.3,67 582.2,67.5 472.1,177.6 276.6,371.1 472.1,564.6 611.9,704.4   "/>
-                        </g>
-                        </svg>
-                      </div>
-                      <div id="iconDescription">
-                        <p>Simplicity is hidden Complexity</p>
-
-
-                      </div>
-                    </div>
-                    <!-- endOfIcon -->
-
-                    <div id="my-intro" class="intro-text">
-                        <p style="font-size: 180%"><i>"Hi, I am Kaijie(KJ) Huang, a Front-end/UI developer passionate about web user experience!"</i>
-                        </p>
-                    </div>
-                    <div id="downArrowSection" class="page-scroll">            
-                        <a href="#portfolio" class="btn btn-circle">
-                            <i id="downArrow"class="fa fa-angle-down animated"></i>
-                        </a>
-                    </div>
-                </div>
+              </div>
             </div>
         </div>
-    </header>
-
-
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <!-- use of grid system!!!! -->
-                <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
-                    <!-- <hr class="star-primary"> -->
-                    <br>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="./folio1.html" class="portfolio-link" >
-                        <div class="caption">
-                            <div class="caption-content">
-                                <p>AngularJS & Database</p>
-                            </div>
-                        </div>
-                        <!-- accessiblity -->
-                        <img src="img/portfolio/database_icon.png" class="img-responsive" alt="AngularJS & Database project">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="./folio2.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <p>Information Visualization</p>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/infovis.png" class="img-responsive" alt="CSS3 & AngularJs smartisan">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="./folio6.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <p>ReactJS</p>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/reactlogo.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="./folio3.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <p>CSS3 animation & AngularJS</p>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/smartisan_icon.png" class="img-responsive" alt="second project">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="./folio4.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <p>Product Design & Prototyping</p>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/prototype.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="./folio5.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <p>WebRTC</p>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/webrtc.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>ABOUT</h2>
-                    <br>
-                </div>
-            </div>
-            <div class="row">
-                <div id="headShotContainer" class="col-lg-4 col-lg-offset-2">
-                    <img id="headShot" class="img-responsive" src="img/headshot.png" alt="KJ's head shot"/>
-                </div>
-                <div class="col-lg-5" >
-                    <p>Hi, I am KJ (Kaijie Huang), a graduate student majoring in Human-Computer Interaction at Georgia Institute of Technology.</p>
-                    <p>I was working as a graduate research assistant at the <a href="http://www.ece.gatech.edu/research/labs/msl/">Multimedia & Sensors Lab(MSL)</a>, developing webRTC(Web Real-Time Communication) applications and web-based image processing application.</p>
-
-                    <p>And now I am working as a technical intern at the <a href="http://www.cvent.com/">Cvent.Inc</a> at Atlanta, in charge of developing web UI using ReactJS with webpack framework.</p>
-
-                    <p>I love food TV show and I am a fan of Anthony Bourdain.</p>
-                </div>
-
-
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <br>
-                    <br>
-
-                    <a href="kj_resume.pdf" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Resume
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-5">
-                        <h3>Location</h3>
-                        <p>85 Fifth Street NW<br>Atlanta, GA 30308</p>
-                    </div>
-                    <div class="footer-col col-md-5">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="https://github.com/hkjpotato" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
-                            </li>
-                            <li>
-                                <a href="http://codepen.io/hkjpotato/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-codepen"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/in/kjhuang" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; KJ's Website 2015
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-default" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
     </div>
+</footer>
 
 
-    <script type="text/javascript">
-        var myIcon_frame_bg_color = "#887969";
+  <!-- About -->
+  <div id="AboutMe" class="modal kj-modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">About Me</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- actual content -->
+              <section class="kj-section">
+                <h4>About</h4>
+                <p>Hi I am Kaijie Huang, you can call me KJ. I am a graduate student from Gatech Human Computer Interaction program and I am now working at an award wining startup called ProsumerGrid.</p>
+                <p>My work is about developing fancy visualization, from backend to browser. This is my personal website developed by d3 and CSS3 animation, you can click on the icon to explore some of my previous design works.</p>
+                <ul>
+                  <li>I like javascript, javascript, javascript...</li>
+                  <li>I like ReactJS and D3.</li>
+                  <li>I like creating amazing user experience, with animation.</li>
+                  <li>I watch a lot of food tv shows and I like cooking.</li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-        $('#my-intro').bind('transitionend webkitTransitionEnd', function(){
-            console.log("transitionend for my intro");
-            $('#downArrow').toggleClass("hover");
-        });
+  <!-- Angular + Database -->
+  <div id="Angular___Database" class="modal kj-modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">AngularJS + Database</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- actual content -->
+              <div class="modal-iframe-container">
+                  <iframe class="videoSrc" align="middle" width="100%" height="420px" src="" data-src="https://www.youtube.com/embed/N1apy5gY9g8" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <section class="kj-section">
+                <h4>About</h4>
+                  <p>Above is a web application I developed for Database Systems Course. The purpose of this project is to analyze, specify, design, implement, document, and demonstrate a database management information system called the Georgia Restaurant Health Inspection System.</p>
+                  <p>User may login as restaurant operator or inspector. The application will automatically guide user towards corresponding menu page based on the login information. If not registered, user can login as guest.</p>
+              </section>
+              <section class="kj-section">
+                <h4>Implementation</h4>
+                <ul>
+                    <li>The front application is developed fully based on AngularJS. Most of the contents are generated from back end server(PHP + MySQL) and dynamically binded to the front end HTML elements.</li>
+                    <li>Bootstrap is used to enhance the UI. The original UI is simple html without CSS</li>
+                    <li>Input data is sent by $http service of AngularJS and the backend is developed using PHP & MySQL.</li>
+                </ul>
+                <p>
+                The detailed project description, including schema diagram and EER diagram for the database, can be found on my <a target="_blank" href="https://github.com/hkjpotato/dbproject">github</a>.
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-        $(document).ready(setTimeout(function() {
+  <!-- Uber -->
+  <div id="Uber" class="modal kj-modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Insider's Visual Guide to Uber</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- actual content -->
+              <div class="modal-iframe-container">
+                  <iframe class="videoSrc" align="middle" width="100%" height="420px" src="" data-src="https://www.youtube.com/embed/Fb98tBD8p1U" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <section class="kj-section">
+                <h4>About</h4>
+                <p>Uber uses an algorithm to calculate the surge price during peak times, when the demand for drivers are high in a certain area. This might have several impacts on both customers and drivers. According to a Washington Post article, these may include: a reduction in the demand for cars (less people want a ride for a higher price), creation of new supply (providing an incentive for new drivers to hit the road), and shifts in supply (drivers) to areas of higher demand. </p>
+                <p>In this project, we develope a visualization of these data to help users understand how surge multiplier works and how to optimize trip planning, especially when travelling to popular events or during peak times.</p>
+              </section>
+              <section class="kj-section">
+                <h4>Implementation</h4>
+                <p>Working with another 3 designer and developers. We make the web app for this visualization project using D3.js.</p>
+                <ul>
+                    <li>Provide <a href="http://www.infovis-wiki.net/index.php?title=Overview-plus-Detail">"Overview-plus-Detail"</a> so that the user can see the overall pattern of cost&time variation, as well as the detailed waiting time and trip duration at a specific hour</li>
+                    <li>Link the data from various views, which is the so-called <a href="http://www.infovis-wiki.net/index.php?title=Linking_and_Brushing">"Brushing and Linking"</a> technique in information visualization. 
+                      <ol>
+                        <li>For bar chart, since each bar is an individual svg element, I can bind the data directly to the svg elements. 
+                        </li>
+                        <li>For the line chart, since the line is a continuous svg element, I have to use invert scale to match the mouse position with data point.
+                        </li>
+                      </ol>
+                    </li>
+                    <li>Use the built-in transition function from D3 library to add animation effect to the svg element so as to enhance the user experience.</li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-          $("#myIcon_frame").css({
-            "margin-top": "0",
-            "border-radius": "0%",
-            "width": "180px",
-            "height": "180px",
-          });
+  <!-- ReactJS -->
+  <div id="ReactJS" class="modal kj-modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">ReactJS</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- actual content -->
+              <section class="kj-section">
+                <h4>About</h4>
+                <p>This part is still under development, I have two projects implemented by ReactJS for you to check out</p>
+                <ol>
+                  <li>
+                    <a target="_blank" href="http://35.164.184.64:3000/">React Server Render App</a>(You can check on the <a target="_blank" href="https://github.com/hkjpotato/react-server-render-app">github</a> link to see how I think in React).
+                  </li>
+                  <li> 
+                    <a data-toggle="modal" data-target="#Map_Visualization">React + D3 map visualization.</a>
+                  </li>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-          $("#myIcon_frame").attr("class", "draw");
-        }, 300));
+  <!-- Smartisan -->
+  <div id="CSS_Animation" class="modal kj-modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">CSS3 3d Animation & AngularJS</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- actual content -->
+              <div class="modal-iframe-container">
+                  <iframe src="" data-src="//codepen.io/hkjpotato/embed/KdpGrM/?height=565&theme-id=light&default-tab=result&embed-version=2" height='565' scrolling='no' title='KdpGrM' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/hkjpotato/pen/KdpGrM/'>KdpGrM</a> by Kaijie Huang (<a href='http://codepen.io/hkjpotato'>@hkjpotato</a>) on <a href='http://codepen.io'>CodePen</a>.
+                  </iframe>
+              </div>
+              <section class="kj-section">
+                <h4>About</h4>
+                <p>I like CSS animation! This is a demo of using CSS3 (3d rotation) to reproduce the animation effect of an android operating system named <a href="http://www.smartisan.com/en/#/os">Smartisan OS</a>.</p>
+              </section>
+              <section class="kj-section">
+                <h4>Implementation</h4>
+                <ul>
+                    <li>AngularJS and SCSS are used to simplify the complexity of the code.</li>
+                    <li>Dynamic data binding makes the outlook of every facade of the cubes changable.</li>
+                    <li>Special concerns are given to some specific animation effect. (e.g hover effect of the color icons)</li>
+                    <li>Details count! Parameters such as animation duration and frames are well tuned so as to provide a sense of harmony.</li>
+                  </ul>
+                <p>Through this project, I want to train myself to reproduce popular animation effects on other platforms such as IOS & Android. In the age of CSS3, I believe the touch heart moment created by entrancing animation is a key to enhance user experience and viscosity of a product.</p>
+                <p>The source materials are obtained from the official website of Smartisan's new Phone, <a href="http://www.smartisan.com/jianguo/#/overview">JianGuo™</a>. I use Photoshop to slice each facade of the cubes from the original images. Besides, I also reference the some of the codes of the original website.</p>
+                <br/>
+                <p>Go and check more css animation works on my codepen, such as the <a target="_blank" href='http://codepen.io/hkjpotato/full/yJjLRW/'><b>CSS Potatoes</b></a></p>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 
 
-      $("#frame").one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
-        function(e) {
-          // code to execute after animation ends
-          console.log("animation end");
+  <!-- UX -->
+  <div id="UX_Prototype" class="modal kj-modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Medicine Reminder - Flow Chart & Prototyping</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- actual content -->
+              <section class="kj-section">
+                <h4>About</h4>
+                <p>This is a design course project about prototyping. The product, <b>Medicine Reminder</b>,  is a platform to help a medicine taker and his/her care giver to better manager the medicine taking acitivities. The platform mainly involves an <a href="#medicineReminder_ios">IOS application</a> for a care giver to track the medicine taking condition remotely, and a <a href="#medicineReminder_device">touch screen interface</a> on the medicine container to remind the medicine taker about their pills.</p>
+              </section>
+              <section class="kj-section">
+                <h4>Implementation</h4>
+                <p>Direct interviews as well as personas development were conducted to have an insight of the user scenarios. Implementation focused on design of iteraction flow to ensured the ease of use of the product.</p>
+                <div id="medicineReminder_ios">
+                  <h5>IOS  APP</h5>
+                  <p>
+                    Low fidelity prototype was first developed by Balsamiq. Then, Keynote is used to developed the interactive prototype with animation effect and details such as color.
+                  </p>
 
-          $("#myIcon").css({
-            "fill": "#ffffff",
-            "stroke-width": 0,
-            "stroke": "#ffffff"
-          });
+                  <div class="modal-iframe-container">
+                    <iframe align="middle" width="100%" height="420px" src="" data-src="https://www.youtube.com/embed/IZKy46LbpKk" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                </div>
 
-          $("#frame").css({"opacity":0.5});
+                <div id="medicineReminder_device">
+                  <h5>Touchscreen Interface</h5>
+                  <p>
+                    As a course project, we were asked to develope in a different style other than the IOS app. Thus I adopted a Material Design style for the touch screen interface. I used Keynote for the UI design, and Axure for the interactive prototype.
+                  </p>
 
-          $("#myIcon_frame").css({
-            "border-radius": "23%",
-            "background": myIcon_frame_bg_color,
-            "-webkit-box-shadow": "0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05)",
-            "-moz-box-shadow": "0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05)",
-            "box-shadow": "0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05)"
-          });
+                  <div id="medicineReminder_navImg_container">
+                    <a href="./img/src/flowchartResized.png" target="_blank">
+                      <img src="" data-src="./img/src/flowchartResized.png" class="img-responsive img-centered" alt="">
+                    </a>
+                  </div>
 
-          $("#iconDescription").css("opacity", 1);
-          $("#my-intro").css("opacity", 1);
-          $("#downArrowSection").css("opacity", 1);
-        });           
+                  <div class="modal-iframe-container">
+                    <iframe class="videoSrc" align="middle" width="100%" height="420px" src="" data-src="https://www.youtube.com/embed/J5ez5UqQb48" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
-        $.fn.isOnScreen = function(){
-            var win = $(window);
-            
-            var viewport = {
-                top : win.scrollTop(),
-                left : win.scrollLeft()
-            };
-            viewport.right = viewport.left + win.width();
-            viewport.bottom = viewport.top + win.height();
-            
-            var bounds = this.offset();
-            bounds.right = bounds.left + this.outerWidth();
-            bounds.bottom = bounds.top + this.outerHeight();
-            
-            return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-            
-        };
-    </script>
+  <!-- Map Visulization -->
+  <div id="Map_Visualization" class="modal kj-modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Map Based Visualization</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <!-- actual content -->
+              <div class="modal-iframe-container">
+                <iframe class="videoSrc" align="middle" width="100%" height="420px" src="" data-src="https://www.youtube.com/embed/D1Dew-8vRIQ" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <section class="kj-section">
+                <h4>About</h4>
+                <p>This is my final year research project in UX as well as my current work as a full stack developer for a map based visulization about power grid network.</p>
 
+                <p>A power grid network is nothing more than node and links. What special about it is that it has two levels: the high voltage level, which we call them transmission network, and low voltage level, which is called distribution network.</p>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+                <p>To show the clear hierarchy of the network based on different zoom level, I went through an interactive design process from defining design details such as color and size of elements, to providing affordance of zoomable in map components.</p>
+                <p>The detailed UX study includes:</p>
+                <ol>
+                  <li>Early user + functional requirements.<a target="_blank" href="https://docs.google.com/document/d/1kHM8ocGf1Y64HVguKm_HLj7oGv5GKD44RhQrqnzOWk4/edit?usp=sharing#heading=h.7c43navaihqy">here</a></li>
+                  <li>A complementary user study with enter & exit surveys (5 subjects).<a href="./img/src/survey.jpg" target="_blank">here</a></li>
+                  <li>A detailed benchmark tasks to cover the major task flow as well as key functionalities of the product.<a target="_blank" href="https://docs.google.com/document/d/1kHM8ocGf1Y64HVguKm_HLj7oGv5GKD44RhQrqnzOWk4/edit?usp=sharing#heading=h.s17x8kmava13">here</a></li>
+                </ol>
 
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <a href="./img/src/benchmark.jpg" target="_blank">
+                      <img src="" data-src="./img/src/benchmark.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                  </div>
+                </div>
+                <br>
+                <p><b>The detailed report is available <a target="_blank" href="https://docs.google.com/document/d/1kHM8ocGf1Y64HVguKm_HLj7oGv5GKD44RhQrqnzOWk4/edit?usp=sharing">here</a>.</b></p>
+              </section>
+              <section class="kj-section">
+                <h4>Implementation</h4>
+                <div>
+                  <h5>UX Design</h5>
+                  <p>After conducting the UX study, <b>15</b> design changes has been implemented to provide a better user experience. The key improvement is on the visualization, focusing on the primary feature “show different details in different levels”.</p>
+                  <img src="" data-src="./img/src/zoom.gif" class="img-responsive img-centered" alt="">
+                  <p>Because of that, the design should:</p>
+                  <ol>
+                    <li>Help user to recombine and reconnect information from different levels when user interact with it.</li>
+                    <li>Let user know where they are in the hierarchy.</li>
+                    <li>Increase affordance of exploration by providing hints.</li>
+                    <li>Promote clicking as because it provide direct interaction on the UI element.</li>
+                    <li>Reserve the interaction information from lower level when switch to higher level.</li>
+                  </ol>
+                  <p>Belows are some key improvements:</p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="./img/src/improved_01.jpg" target="_blank">
+                        <img src="" data-src="./img/src/improved_01.jpg" class="img-responsive img-centered" alt="">
+                      </a>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="./img/src/improved_02.jpg" target="_blank">
+                        <img src="" data-src="./img/src/improved_02.jpg" class="img-responsive img-centered" alt="">
+                      </a>
+                    </div>
+                  </div>
+                  <p>The detailed improvement document can be found <a target="_blank" href="https://docs.google.com/document/d/1kHM8ocGf1Y64HVguKm_HLj7oGv5GKD44RhQrqnzOWk4/edit?usp=sharing#heading=h.lpxm5qagg30n">here</a></p>
+                </div>
+                <div>
+                  <h5>Development</h5>
+                  <p>The basic architecture of the application is as follows:</p>
+                  <img src="" data-src="./img/src/architect.jpg" class="img-responsive img-centered" alt="">
+                  <p>I focus myself on the front end development, which is a combined of D3 and ReactJS. The most challenging part is to let D3 work with React. <b>Essentially, it is to let the d3 udpate pattern work with React life cycle.</b></p>
+                  <p>Below is a schema on how I seperate D3 component from React, basically, the google map and its overlay are controlled by d3 component, which lives outside the React controlled dom, and I carefully design the update pattern to match the componentDidUpdate function of React.</p>
+                  <img src="" data-src="./img/src/react_d3.jpg" class="img-responsive img-centered" alt="">
+                  <p>Some demo codes are available on <a target="_blank" href="https://github.com/hkjpotato/react-vis-project">github.</a></p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="./js/kj.js"></script>
+  <script type="text/javascript">
+    $('.kj-modal').on('show.bs.modal', function() {
+      // when .kj-modal opened, set content-body height based on browser height; 200 is appx height of modal padding, modal title and button bar
+      var height = $(window).height() - 180;
+      $(this).find(".modal-body").css("max-height", height);
+      // load the iframe
+      $(this).find('iframe').attr("src", function() {
+        return $(this).attr("data-src");
+      })
+      $(this).find('img').attr("src", function() {
+        return $(this).attr("data-src");
+      })
+    });
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
-
+    $('.kj-modal').on('hide.bs.modal', function() {
+      //unload iframe
+      $(this).find('iframe').attr("src", "");
+      $(this).find('img').attr("src", "");
+    });
+  </script>
 </body>
-
-
 </html>
-

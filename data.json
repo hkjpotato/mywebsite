@@ -1,0 +1,68 @@
+{
+  "name": "Click Me",
+  "img": "https://raw.githubusercontent.com/hkjpotato/mywebsite/master/img/headshot.png",
+  "size": 80,
+  "children": [
+    {
+      "name" : "Web Development",
+      "img": "./img/newicon.png",
+      "size": 60,
+      "children": [
+        {
+          "name": "Angular + Database",
+          "img": "./img/newicon.png",
+          "link": null,
+          "size": 40
+        },
+        {
+          "name": "ReactJS",
+          "img": "./img/newicon.png",
+          "link": null,
+          "size": 40
+        }
+      ]
+    },
+    {
+      "name" : "Design",
+      "img": "./img/newicon.png",
+      "size": 60,
+      "children": [
+        {
+          "name": "CSS Animation",
+          "img": "./img/newicon.png",
+          "link": null,
+          "size": 40
+        },
+        {
+          "name": "UX Prototype",
+          "img": "./img/newicon.png",
+          "link": null,
+          "size": 40
+        }
+      ]
+    },
+    {
+      "name" : "Visualization",
+      "img": "https://raw.githubusercontent.com/d3/d3-logo/master/d3.png",
+      "discription": "I like data visualization and I am working as a visualization scientist now...",
+      "size": 60,
+      "children": [
+        {
+          "img": "./img/newicon.png",
+          "name": "Uber",
+          "discription": "Course Project about Uber's surge price",
+          "link": null,
+          "size": 40
+        },
+        {
+          "img": "./img/portfolio/reactlogo.png",
+          "name": "Map Visualization",
+          "keyProject": true,
+          "discription": "Visualization of Power Network data using React + D3 + Google Map",
+          "link": null,
+          "size": 40
+        }
+      ]
+    }
+  ]
+}

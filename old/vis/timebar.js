@@ -30,8 +30,6 @@ function formatMinute(time) {
 }
 
 
-
-
 function init(){
      globarlBarmargin = {top: 20, right: 20, bottom: 30, left: 40};
      width_bar = 420 - globarlBarmargin.left - globarlBarmargin.right;

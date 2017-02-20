@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+@import url(./new.css);
+.link {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node {
+  cursor: move;
+  fill: #ccc;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node.fixed {
+  fill: #f00;
+}
+
+#vis {
+  width: 400px;
+  border: 1px solid red;
+}
+
+#vis .responsive {
+  display: inline;
+  outline: 1px solid blue;
+  margin-top: 50px;
+  margin-bottom: 10px;
+
+  width: 30%;
+  height: auto;
+}
+
+.myinline {
+  /*display: inline-block;*/
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.container {
+  width: 40%;
+  height: auto;
+  /*border: 1px solid blue;*/
+  /*display: inline-block;*/
+  float: left;
+  margin-left: 5%;
+}
+</style>
+</head>
+
+<body onload="">
+<div id="test"></div>
+
+<div class="container">
+<svg id="mysvg" width="30" height="30"
+  style="border: 1px solid gray">
+  <rect x="0" y="0" width="100" height="100"
+    style="stroke: blue; fill: red;"
+  />
+  <rect x="100" y="0" width="100" height="100"
+    style="stroke: blue; fill: yellow;"
+  />
+  <rect x="200" y="0" width="100" height="100"
+    style="stroke: blue; fill: green;"
+  />
+  <rect x="0" y="100" width="100" height="100"
+    style="stroke: blue; fill: orange;"
+  />
+  <rect x="100" y="100" width="100" height="100"
+    style="stroke: blue; fill: purple;"
+  />
+  <rect x="200" y="100" width="100" height="100"
+    style="stroke: blue; fill: pink;"
+  />
+  <rect x="0" y="200" width="100" height="100"
+    style="stroke: blue; fill: brown;"
+  />
+  <rect x="100" y="200" width="100" height="100"
+    style="stroke: blue; fill: lightblue;"
+  />
+  <rect x="200" y="200" width="100" height="100"
+    style="stroke: blue; fill: blue;"
+  />
+  <text x="20" y="20" style="font-size: 10; z-index: 3">viewport</text>
+</svg>
+</div>
+
+<div class="container">
+<svg id="mysvg2" width="300" height="300"
+  viewBox="100 100 100 100"
+  preserveAspectRatio="xMinYMin slice"
+  style="border: 1px solid gray">
+  <rect x="0" y="0" width="100" height="100"
+    style="stroke: blue; fill: red;"
+  />
+  <rect x="100" y="0" width="100" height="100"
+    style="stroke: blue; fill: yellow;"
+  />
+  <rect x="200" y="0" width="100" height="100"
+    style="stroke: blue; fill: green;"
+  />
+  <rect x="0" y="100" width="100" height="100"
+    style="stroke: blue; fill: orange;"
+  />
+  <rect x="100" y="100" width="100" height="100"
+    style="stroke: blue; fill: purple;"
+  />
+  <rect x="200" y="100" width="100" height="100"
+    style="stroke: blue; fill: pink;"
+  />
+  <rect x="0" y="200" width="100" height="100"
+    style="stroke: blue; fill: brown;"
+  />
+  <rect x="100" y="200" width="100" height="100"
+    style="stroke: blue; fill: lightblue;"
+  />
+  <rect x="200" y="200" width="100" height="100"
+    style="stroke: blue; fill: blue;"
+  />
+  <text x="20" y="20" style="font-size: 10; z-index: 3">viewbox</text>
+</svg>
+</div>
+
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+var mysvg = document.getElementById("mysvg");
+setInterval(function() {
+  // d3.select(mysvg).attr("viewBox", function() {
+  //   var curr = d3.select(this).attr("viewBox");
+  //   console.log(curr);
+  //   var values = curr.split(" ");
+  //   // values[0] = +values[0] + 10;
+  //   return values.join(" ");
+  // })
+
+  d3.select(mysvg)
+  .attr("width", function() {
+    var curr = +d3.select(this).attr("width");
+    return curr > 300 ? curr : curr * 1.1;
+  })
+  .attr("height", function() {
+    var curr = +d3.select(this).attr("height");
+    return curr > 300 ? curr : curr * 1.1;
+  });
+}, 50);
+
+</script>
