@@ -1,3 +1,7 @@
+.test {
+  display: none;
+}
+
 body {
   background: #f6f6f6;
   font-family: "Open Sans", sans-serif;
@@ -154,9 +158,47 @@ footer {
 }
 
 .special {
-  text-indent: 0;
   margin-right: 10px;
+  height: 50px;
+}
+
+.special i{
+  line-height: inherit;
+}
+
+#animate-area {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#animate-area:after { 
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.6;
+  background-size: 80px 50px;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/28727/yukon-landscape-mask.png');
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 3s linear infinite;
 }
 
 
+#animate-area:hover,
+#animate-area:focus,
+#animate-area:active,
+#animate-area.active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 235% 0; }
+}
 
