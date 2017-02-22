@@ -30,8 +30,40 @@
   <link rel="stylesheet" href="./css/kjstyle.css">
   <link rel="stylesheet" href="./css/icon.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+  <script type="text/javascript">
+
+      function get_browser(){
+        var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+        if(/trident/i.test(M[1])){
+            tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
+            return {name:'IE',version:(tem[1]||'')};
+            }   
+        if(M[1]==='Chrome'){
+            tem=ua.match(/\bOPR\/(\d+)/)
+            if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+            }   
+        M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+        if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+        return {
+          name: M[0],
+          version: M[1]
+        };
+     }
+
+     function checkBrowser() {
+       var browser = get_browser();
+       console.log(browser);
+       if (browser.name !== "Safari" || parseInt(browser.version) > 9) {
+        console.log("good version");
+        // $('#myIcon_frame').css({"border":"8px solid white"})
+       } else {
+        alert("not support browser, redirect to old version, please use chrome to see this website");
+        window.location.replace("./old");
+       }
+     }
+  </script>
 </head>
-<body>
+<body onload="checkBrowser()">
 <div id="mainContent">
   <div id="animationContainer">
     <div id="iconGroup">
