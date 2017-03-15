@@ -1,29 +1,11 @@
-.test {
-  display: none;
-}
-
 body {
   background: #f6f6f6;
   font-family: "Open Sans", sans-serif;
   height: 100%;
 }
-.box {
-    width: 200px; height: 100px;
-    background-size: 100% 200%;
-    background-image: linear-gradient(to bottom, red 50%, black 50%);
-    transition: background-position 1s;
-}
-
-.box:hover {
-    background-position: 0 -100%;
-}
-
-.about-btn {
-  /*height: 50px;*/
-}
-
 
 #animationContainer {
+  /*outline: 1px solid blue;*/
   text-align: center;
   height: 550px;
   margin: auto;
@@ -34,8 +16,7 @@ body {
   left: 50%;
   margin-left: -480px;
   margin-top: -280px; 
-  padding-top: 100px;
-
+  padding-top: 80px;
 }
 
 #animationContainer .container {
@@ -66,11 +47,6 @@ footer {
   position: fixed;
   bottom: 10px;
   width: 100%;
-}
-
-
-.test-box {
-  outline: 2px solid blue;
 }
 
 .modal.kj-modal .modal-dialog {
@@ -146,6 +122,7 @@ footer {
   font-size: 20px;
   border: solid 2px #545454;
   background: transparent;
+  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .btn-outline:hover,
@@ -174,7 +151,6 @@ footer {
 
 #animate-area:after { 
   content: '';
-  /*outline: 1px solid red;*/
   display: block;
   position: absolute;
   left: 0;
@@ -187,7 +163,8 @@ footer {
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/28727/yukon-landscape-mask.png');
   background-position: 0px 0px;
   background-repeat: repeat-x;
-  animation: animatedBackground 3s linear infinite;
+  -webkit-animation: animatedBackground 3s linear infinite;
+          animation: animatedBackground 3s linear infinite;
 }
 
 
@@ -196,6 +173,11 @@ footer {
 #animate-area:active,
 #animate-area.active {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+@-webkit-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 235% 0; }
 }
 
 @keyframes animatedBackground {

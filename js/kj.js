@@ -13,54 +13,43 @@ function explore() {
     init();
 }
 
-$('#my-intro').bind('transitionend webkitTransitionEnd', function(){
-    $("#exploreButton").css("display", "inline");
-});
-
-$("#frame").one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
-function(e) {
-  // code to execute after animation ends
-  console.log("animation end");
-  $("#myIcon").css({
-    "fill": "#ffffff",
-    "stroke-width": 0,
-    "stroke": "#ffffff"
-  });
-  $("#frame").css({"opacity":0.5});
-  $("#myIcon_frame").css({
-    "border-radius": "22%",
-    "background": myIcon_frame_bg_color,
-    "-webkit-box-shadow": "0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05)",
-    "-moz-box-shadow": "0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05)",
-    "box-shadow": "0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05)"
-  });
-
-  $("#iconDescription").css("opacity", 1);
-  $("#my-intro").css("opacity", 1);
-
-});       
-
-
 $(document).ready(
   function() {
-    // $('#animationContainer').css({
-    //   display: 'none'
-    // });
-    // $('#vis').css({
-    //   display: 'block'
-    // });
-    // init();
-    $("#myIcon_frame").css({
-      "margin-top": "0",
-      "border-radius": "0%",
-      "width": "180px",
-      "height": "180px",
-    });
-    $("#myIcon_frame").attr("class", "draw");
+    // browser check
+    function get_browser(){
+      var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+      if(/trident/i.test(M[1])){
+          tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
+          return {name:'IE',version:(tem[1]||'')};
+          }   
+      if(M[1]==='Chrome'){
+          tem=ua.match(/\bOPR\/(\d+)/)
+          if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+          }   
+      M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+      if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+      return {
+        name: M[0],
+        version: M[1]
+      };
+    }
+
+    function checkBrowser() {
+     var browser = get_browser();
+     console.log(browser);
+      initialAnimation();
+
+     // if (parseInt(browser.version) > 9) {
+     //  console.log("good version");
+     //  initialAnimation();
+     // } else {
+     //  alert("not support browser, redirect to old version, please use chrome to see this website");
+     //  window.location.replace("./old");
+     // }
+    }
+
+    checkBrowser();
 });
-
-
-
 /*
 For visualization
 */

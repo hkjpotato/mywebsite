@@ -1,29 +1,68 @@
-/*#downArrowSection {
-  display: none;
-}*/
-#my-intro {
-  color: #545454;
-  opacity: 0;
-  -webkit-transition: all .5s linear 3s;
-  -moz-transition: all .5s linear 3s;
-  transition: all .5s linear 3s;
-}
-
 #iconGroup #iconDescription {
   color: #6d6d6d;
   opacity: 0;
   margin-top: 12px;
   font-size: 1.2em;
-  -webkit-transition: all 1.5s linear 1.5s;
-  -moz-transition: all 1.5s linear 1.5s;
-  transition: all 1.5s linear 1.5s;
+}
+
+#iconGroup #icon-wrapper {
+  position: relative;
+  margin: 0 auto;
+  /*outline: 1px solid red;*/
+  width: 180px;
+  height: 180px;
+}
+
+#icon-div {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  margin: 0 auto;
+  top: 150px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #c4c4c4;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-transition: box-shadow 1s;
+  transition: box-shadow 1s;
+}
+
+#icon-svg {
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 1;
+}
+#icon-svg #frame {
+  overflow: hidden;
+  stroke: #4e463d;
+  stroke-dasharray: 3700px;
+  stroke-dashoffset: 3700px;
+}
+#icon-svg #logo {
+  opacity: 1;
+  box-sizing: border-box;
+  fill: none;
+  stroke: #4e463d;
+  stroke-width: 20;
+  stroke-dasharray: 3700px;
+  stroke-dashoffset: 3700px;
+}
+
+#my-intro {
+  color: #545454;
+  opacity: 0;
+  margin-top: 50px;
 }
 
 #exploreButton {
-  display: none;
+  opacity: 0;
   z-index: 999;
   -webkit-animation: pulse 1.5s linear infinite;
-  -moz-animation: pulse 1.5s linear infinite;
   animation: pulse 1.5s linear infinite;
 }
 
@@ -38,145 +77,18 @@
     -webkit-transform: scale(1);
   }
 }
-@-moz-keyframes pulse {
-  0 {
-    -moz-transform: scale(1);
-  }
-  50% {
-    -moz-transform: scale(1.1);
-  }
-  100% {
-    -moz-transform: scale(1);
-  }
-}
 keyframes pulse {
   0 {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   100% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
-#iconGroup {
-  width: 250px;
-  height: 250px;
-  margin: 0px auto;
-}
 
-#iconGroup #myIconContainer #myIcon_frame {
-  width: 0px;
-  height: 0px;
-  margin-top: 100px;
-  background: white;
-  border-radius: 50%;
-  opacity: 1;
-  border: 8px solid white;
-}
-
-#iconGroup #myIconContainer #myIcon_frame #frame {
-  overflow: hidden;
-  stroke: #4e463d;
-  stroke-dasharray: 3700px;
-  stroke-dashoffset: 3700px;
-}
-#iconGroup #myIconContainer #myIcon_frame #myIcon {
-  opacity: 1;
-  box-sizing: border-box;
-  fill: none;
-  stroke: #4e463d;
-  stroke-width: 20;
-  stroke-dasharray: 3700px;
-  stroke-dashoffset: 3700px;
-}
-
-
-
-
-
-/* About animation*/
-/*fading control*/
-#myIcon, #frame {
--webkit-transition: all 2s linear 0s;
--moz-transition: all 2s linear 0s;
-transition: all 2s linear 0s;
-}
-/*pop up*/
-#myIcon_frame {
--webkit-transition: all 1s ease 0.3s;
--moz-transition: all 1s ease 0.3s;
-transition: all 1s ease 0.3s;
-}
-
-/*drawing*/
-#myIcon_frame.draw #frame {
--webkit-animation: DRAWFRAME 2s forwards 1.3s;
-/* Safari 4+ */
--moz-animation: DRAWFRAME 2s forwards 1.3s;
-/* Fx 5+ */
--o-animation: DRAWFRAME 2s forwards 1.3s;
-/* Opera 12+ */
-animation: DRAWFRAME 2s forwards 1.3s;
-}
-
-#myIcon_frame.draw #myIcon{
--webkit-animation: DRAWICON 1.8s forwards 2s;
-/* Safari 4+ */
--moz-animation: DRAWICON 1.8s forwards 2s;
-/* Fx 5+ */
--o-animation: DRAWICON 1.8s forwards 2s;
-/* Opera 12+ */
-animation: DRAWICON 1.8s forwards 2s;
-}
-
-
-@-webkit-keyframes DRAWICON {
-to {
-stroke-dashoffset: 0;
-}
-}
-
-@-moz-keyframes DRAWICON {
-to {
-stroke-dashoffset: 0;
-}
-}
-
-@-o-keyframes DRAWICON {
-to {
-stroke-dashoffset: 0;
-}
-}
-
-@keyframes DRAWICON {
-to {
-stroke-dashoffset: 0;
-}
-}
-
-/*frame drawing*/
-@-webkit-keyframes DRAWFRAME {
-to {
-stroke-dashoffset: 0;
-}
-}
-
-@-moz-keyframes DRAWFRAME {
-to {
-stroke-dashoffset: 0;
-}
-}
-
-@-o-keyframes DRAWFRAME {
-to {
-stroke-dashoffset: 0;
-}
-}
-
-@keyframes DRAWFRAME {
-to {
-stroke-dashoffset: 0;
-}
-}
